@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LogbookView: View {
-    let entry = LogbookEntry(id: UUID(), times: FlightTimes(block: 60, air: 45))
+    let entry = LogbookEntry(id: UUID(), times: try! FlightTimes(block: 60, air: 45)) /// FIX ME!
     
     var body: some View {
         NavigationView {
