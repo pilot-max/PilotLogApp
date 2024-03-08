@@ -9,33 +9,20 @@ import SwiftUI
 
 struct LogbookEntryDetailView: View {
     let entry: LogbookEntry
+    private let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            return formatter
+        }()
     
     var body: some View {
         VStack {
-            Spacer()
-//            Text("\(entry.departure) - \(entry.arrival)")
-//                .font(.title)
-//            Text("\(entry.day)/\(entry.month)/\(entry.year)")
-//                .font(.title3)
-//
-//            Spacer()
-//
-//            Text("\(entry.flightNumber ?? "")")
-//                .font(.title3)
-//            Text("\(entry.aircraftRegistration)")
-//
-//            Spacer()
-//
-//            Text("\(entry.totalTimeDecimal()) hours")
-//                .font(.title2)
-            
-            Spacer()
-            
-            
+            Text("\(dateFormatter.string(from: entry.date))")
+            Text("\(entry.id)")
         }
     }
 }
 
-//#Preview {
-//    LogbookEntryDetailView(entry: LogbookEntry.sampleData)
-//}
+#Preview {
+    LogbookEntryDetailView(entry: LogbookEntry.sampleEntries().first!)
+}

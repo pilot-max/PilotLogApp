@@ -7,13 +7,31 @@
 
 import Foundation
 
-struct LogbookEntry {
+struct LogbookEntry: Identifiable {
     let id: UUID
-    //var date: Date
+    var date: Date
     //var aircraft: Aircraft
     //var flightNumber: String
     //var route: FlightRoute
     var times: FlightTimes
+    
+    init(date: Date, times: FlightTimes) {
+        self.id = UUID()
+        self.date = date
+        self.times = times
+    }
+}
+
+extension LogbookEntry {
+    static func sampleEntries() -> [LogbookEntry] {
+        [
+            LogbookEntry(date: DateHelper.createDate(year: 2024, month: 01, day: 01, hour: 12, minute: 00), times: try! FlightTimes(block: 60, air: 45)),
+            LogbookEntry(date: DateHelper.createDate(year: 2024, month: 01, day: 01, hour: 14, minute: 14), times: try! FlightTimes(block: 160, air: 145)),
+            LogbookEntry(date: DateHelper.createDate(year: 2024, month: 01, day: 10, hour: 08, minute: 16), times: try! FlightTimes(block: 120, air: 80)),
+            LogbookEntry(date: DateHelper.createDate(year: 2024, month: 01, day: 11, hour: 15, minute: 02), times: try! FlightTimes(block: 200, air: 180)),
+            LogbookEntry(date: DateHelper.createDate(year: 2024, month: 01, day: 12, hour: 02, minute: 54), times: try! FlightTimes(block: 40, air: 30))
+        ]
+    }
 }
 
 //struct LogbookEntry: Identifiable, Codable {

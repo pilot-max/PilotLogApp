@@ -8,16 +8,24 @@
 import SwiftUI
 
 struct LogbookView: View {
-    let entry = LogbookEntry(id: UUID(), times: try! FlightTimes(block: 60, air: 45)) /// FIX ME!
+    @State private var viewModel = ViewModel()
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Entry \(entry.id) Block: \(entry.times.blockTimeClockFormat) Air: \(entry.times.airTimeClockFormat)")
+        NavigationStack {
+            List(viewModel.entries) { entry in
+                NavigationLink {
+                    LogbookEntryDetailView(entry: entry)
+                } label: {
+                    LogbookListItemView(entry: entry)
+                }
             }
-            //LogbookListView(entries: LogbookEntry.sampleList)
-                .navigationTitle("Logbook")
-                .navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationTitle("Logbook")
+        .navigationBarTitleDisplayMode(.inline)
+        
+        // Load sample data
+        .onAppear {
+            viewModel.loadSampleData()
         }
     }
 }
