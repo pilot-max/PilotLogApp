@@ -12,7 +12,7 @@ struct Aircraft: Codable, Identifiable {
     var registration: String
     var tailNumber: String?
     var type: AircraftType
-    var airline: Airline
+    var airline: Airline?
     var isActive: Bool = true
     
     internal init(registration: String, tailNumber: String? = nil, type: AircraftType, airline: Airline, isActive: Bool = true) {

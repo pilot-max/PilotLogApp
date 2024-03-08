@@ -13,6 +13,12 @@ struct AircraftListView: View {
         List {
             ForEach(aircraft) { airplane in
                 AircraftListViewItem(aircraft: airplane)
+                NavigationLink {
+//                    AircraftEditView(aircraft: airplane)
+//                        .navigationTitle("Edit Aircraft")
+                } label: {
+                    AircraftListViewItem(aircraft: airplane)
+                }
             }
         }
         .navigationTitle("Aircraft")
@@ -35,6 +41,7 @@ struct AircraftListViewItem: View {
             .padding(.bottom, 6)
             HStack {
                 Text(aircraft.airline.name)
+                Text(aircraft.airline?.name ?? "")
                 Spacer()
                 Text(aircraft.type.manufacturer)
                 Text(aircraft.type.name)
@@ -45,5 +52,7 @@ struct AircraftListViewItem: View {
 }
 
 #Preview {
-    AircraftListView(aircraft: LogbookPreviewData().aircraft)
+    NavigationView {
+        AircraftListView(aircraft: LogbookPreviewData().aircraft)
+    }
 }
