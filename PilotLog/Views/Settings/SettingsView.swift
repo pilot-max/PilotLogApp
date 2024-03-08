@@ -13,12 +13,14 @@ struct SettingsView: View {
     @State var sendReadReceipts: Bool = false
     @State var profileImageSize: String = "large"
     
+    var aircraft = LogbookPreviewData().aircraft
+    
     var body: some View {
         NavigationView {
             Form {
                 Section (header: Text("Lists")){
                     NavigationLink {
-                        AircraftListView()
+                        AircraftListView(aircraft: aircraft)
                     } label: {
                         Text("Aircraft")
                     }
