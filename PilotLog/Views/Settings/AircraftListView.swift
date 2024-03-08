@@ -40,7 +40,6 @@ struct AircraftListViewItem: View {
             }
             .padding(.bottom, 6)
             HStack {
-                Text(aircraft.airline.name)
                 Text(aircraft.airline?.name ?? "")
                 Spacer()
                 Text(aircraft.type.manufacturer)
