@@ -26,6 +26,7 @@ struct AircraftListViewItem: View {
         VStack {
             HStack {
                 Text(aircraft.registration)
+                Spacer()
                 if let tailNumber = aircraft.tailNumber {
                     Text("(\(tailNumber))")
                         .font(.caption)
