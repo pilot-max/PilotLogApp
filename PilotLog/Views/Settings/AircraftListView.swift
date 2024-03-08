@@ -8,16 +8,49 @@
 import SwiftUI
 
 struct AircraftListView: View {
+    var aircraft: [Aircraft]
     var body: some View {
         List {
-            ForEach(["C-FNEN", "C-FHEN", "C-GJWE"], id: \.self) { aircraft in
-                Text(aircraft)
+            ForEach(aircraft) { airplane in
+                NavigationLink {
+//                    AircraftEditView(aircraft: airplane)
+//                        .navigationTitle("Edit Aircraft")
+                } label: {
+                    AircraftListViewItem(aircraft: airplane)
+                }
             }
         }
         .navigationTitle("Aircraft")
     }
 }
 
+struct AircraftListViewItem: View {
+    let aircraft: Aircraft
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Text(aircraft.registration)
+                Spacer()
+                if let tailNumber = aircraft.tailNumber {
+                    Text("(\(tailNumber))")
+                        .font(.caption)
+                }
+            }
+            .padding(.bottom, 6)
+            HStack {
+                Text(aircraft.airline?.name ?? "")
+                Spacer()
+                Text(aircraft.type.manufacturer)
+                Text(aircraft.type.name)
+            }
+            .font(.caption2)
+        }
+    }
+}
+
 #Preview {
-    AircraftListView()
+    NavigationView {
+        AircraftListView(aircraft: LogbookPreviewData().aircraft)
+    }
 }
