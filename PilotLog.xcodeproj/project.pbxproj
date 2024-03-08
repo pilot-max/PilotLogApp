@@ -34,7 +34,15 @@
 		17082D3B2B959431000F5D41 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17082D3A2B959431000F5D41 /* MenuItem.swift */; };
 		17082D3E2B9596B7000F5D41 /* PilotLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17082D3D2B9596B7000F5D41 /* PilotLogApp.swift */; };
 		17082D402B959786000F5D41 /* FlightTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17082D3F2B959786000F5D41 /* FlightTimesTests.swift */; };
+		1751F7502B9A4BBE004EA9EC /* LogbookEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F74F2B9A4BBE004EA9EC /* LogbookEntryTests.swift */; };
+		1751F7522B9A4E5E004EA9EC /* AircraftTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F7512B9A4E5E004EA9EC /* AircraftTypeTests.swift */; };
+		1751F7542B9A4E7C004EA9EC /* AircraftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F7532B9A4E7C004EA9EC /* AircraftType.swift */; };
+		1751F7562B9A506D004EA9EC /* EngineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F7552B9A506D004EA9EC /* EngineType.swift */; };
+		1751F7582B9A54E2004EA9EC /* AircraftCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F7572B9A54E2004EA9EC /* AircraftCategory.swift */; };
 		179CF8562B9920BA001BBBBF /* FlightTimesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CF8552B9920BA001BBBBF /* FlightTimesError.swift */; };
+		17F2E4D92B9A80A90055D650 /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2E4D82B9A80A90055D650 /* Aircraft.swift */; };
+		17F2E4DD2B9A81200055D650 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2E4DC2B9A81200055D650 /* Airline.swift */; };
+		17F2E4DF2B9A85130055D650 /* LogbookPreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2E4DE2B9A85130055D650 /* LogbookPreviewData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +93,15 @@
 		17082D3A2B959431000F5D41 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		17082D3D2B9596B7000F5D41 /* PilotLogApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotLogApp.swift; sourceTree = "<group>"; };
 		17082D3F2B959786000F5D41 /* FlightTimesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTimesTests.swift; sourceTree = "<group>"; };
+		1751F74F2B9A4BBE004EA9EC /* LogbookEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogbookEntryTests.swift; sourceTree = "<group>"; };
+		1751F7512B9A4E5E004EA9EC /* AircraftTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftTypeTests.swift; sourceTree = "<group>"; };
+		1751F7532B9A4E7C004EA9EC /* AircraftType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftType.swift; sourceTree = "<group>"; };
+		1751F7552B9A506D004EA9EC /* EngineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineType.swift; sourceTree = "<group>"; };
+		1751F7572B9A54E2004EA9EC /* AircraftCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftCategory.swift; sourceTree = "<group>"; };
 		179CF8552B9920BA001BBBBF /* FlightTimesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTimesError.swift; sourceTree = "<group>"; };
+		17F2E4D82B9A80A90055D650 /* Aircraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aircraft.swift; sourceTree = "<group>"; };
+		17F2E4DC2B9A81200055D650 /* Airline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
+		17F2E4DE2B9A85130055D650 /* LogbookPreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogbookPreviewData.swift; path = "PilotLog/Preview Content/LogbookPreviewData.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +166,7 @@
 		17082CE62B95914B000F5D41 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				17F2E4DE2B9A85130055D650 /* LogbookPreviewData.swift */,
 				17082CE72B95914B000F5D41 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -158,6 +175,8 @@
 		17082CF02B95914B000F5D41 /* PilotLogTests */ = {
 			isa = PBXGroup;
 			children = (
+				1751F7512B9A4E5E004EA9EC /* AircraftTypeTests.swift */,
+				1751F74F2B9A4BBE004EA9EC /* LogbookEntryTests.swift */,
 				17082CF12B95914B000F5D41 /* PilotLogTests.swift */,
 				17082D3F2B959786000F5D41 /* FlightTimesTests.swift */,
 			);
@@ -228,6 +247,9 @@
 		17082D2F2B9593C5000F5D41 /* Logbook */ = {
 			isa = PBXGroup;
 			children = (
+				17F2E4DC2B9A81200055D650 /* Airline.swift */,
+				17F2E4D82B9A80A90055D650 /* Aircraft.swift */,
+				1751F7532B9A4E7C004EA9EC /* AircraftType.swift */,
 				17082D2C2B959390000F5D41 /* FlightTimes.swift */,
 				17082D2A2B95937E000F5D41 /* LogbookEntry.swift */,
 			);
@@ -247,6 +269,8 @@
 		17082D392B95941D000F5D41 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				1751F7572B9A54E2004EA9EC /* AircraftCategory.swift */,
+				1751F7552B9A506D004EA9EC /* EngineType.swift */,
 				179CF8542B9920A0001BBBBF /* Errors */,
 				17082D372B959411000F5D41 /* ApproachLighting.swift */,
 			);
@@ -401,10 +425,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F2E4DF2B9A85130055D650 /* LogbookPreviewData.swift in Sources */,
 				17082D3E2B9596B7000F5D41 /* PilotLogApp.swift in Sources */,
+				1751F7582B9A54E2004EA9EC /* AircraftCategory.swift in Sources */,
 				17082D1B2B9592B5000F5D41 /* SettingsView.swift in Sources */,
 				17082D152B959252000F5D41 /* LogbookEntryDetailView.swift in Sources */,
 				17082D132B959236000F5D41 /* LogbookListView.swift in Sources */,
+				1751F7542B9A4E7C004EA9EC /* AircraftType.swift in Sources */,
+				17F2E4DD2B9A81200055D650 /* Airline.swift in Sources */,
 				17082D242B959310000F5D41 /* ApproachMinimumsCalculator.swift in Sources */,
 				17082D202B9592EC000F5D41 /* ToolsView.swift in Sources */,
 				17082D0F2B9591DD000F5D41 /* LogbookView.swift in Sources */,
@@ -412,6 +440,7 @@
 				17082D1D2B9592C4000F5D41 /* AircraftListView.swift in Sources */,
 				17082D272B959359000F5D41 /* Date.swift in Sources */,
 				17082D2B2B95937E000F5D41 /* LogbookEntry.swift in Sources */,
+				17F2E4D92B9A80A90055D650 /* Aircraft.swift in Sources */,
 				17082D3B2B959431000F5D41 /* MenuItem.swift in Sources */,
 				17082D292B959366000F5D41 /* TimeInterval.swift in Sources */,
 				17082D0B2B9591B1000F5D41 /* MainView.swift in Sources */,
@@ -423,6 +452,7 @@
 				17082D352B9593EC000F5D41 /* DateHelper.swift in Sources */,
 				17082D2D2B959390000F5D41 /* FlightTimes.swift in Sources */,
 				17082D222B9592FE000F5D41 /* CrosswindCalculatorView.swift in Sources */,
+				1751F7562B9A506D004EA9EC /* EngineType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +461,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				17082D402B959786000F5D41 /* FlightTimesTests.swift in Sources */,
+				1751F7502B9A4BBE004EA9EC /* LogbookEntryTests.swift in Sources */,
 				17082CF22B95914B000F5D41 /* PilotLogTests.swift in Sources */,
+				1751F7522B9A4E5E004EA9EC /* AircraftTypeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
