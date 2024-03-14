@@ -34,7 +34,6 @@
 		17082D382B959411000F5D41 /* ApproachLighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17082D372B959411000F5D41 /* ApproachLighting.swift */; };
 		17082D3E2B9596B7000F5D41 /* PilotLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17082D3D2B9596B7000F5D41 /* PilotLogApp.swift */; };
 		17082D402B959786000F5D41 /* FlightTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17082D3F2B959786000F5D41 /* FlightTimesTests.swift */; };
-		1728351E2BA24DDD00D444FB /* Resizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728351D2BA24DDD00D444FB /* Resizable.swift */; };
 		174EED462B9FBE2B0012EFFD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EED452B9FBE2B0012EFFD /* DataController.swift */; };
 		174EED492B9FBE890012EFFD /* Logbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 174EED472B9FBE890012EFFD /* Logbook.xcdatamodeld */; };
 		1751F7502B9A4BBE004EA9EC /* LogbookEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F74F2B9A4BBE004EA9EC /* LogbookEntryTests.swift */; };
@@ -101,7 +100,6 @@
 		17082D372B959411000F5D41 /* ApproachLighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproachLighting.swift; sourceTree = "<group>"; };
 		17082D3D2B9596B7000F5D41 /* PilotLogApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotLogApp.swift; sourceTree = "<group>"; };
 		17082D3F2B959786000F5D41 /* FlightTimesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTimesTests.swift; sourceTree = "<group>"; };
-		1728351D2BA24DDD00D444FB /* Resizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resizable.swift; sourceTree = "<group>"; };
 		174EED452B9FBE2B0012EFFD /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		174EED482B9FBE890012EFFD /* Logbook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Logbook.xcdatamodel; sourceTree = "<group>"; };
 		1751F74F2B9A4BBE004EA9EC /* LogbookEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogbookEntryTests.swift; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 				17082D322B9593DF000F5D41 /* MileFraction.swift */,
 				17082D302B9593D4000F5D41 /* Trig.swift */,
 				17082D282B959366000F5D41 /* TimeInterval.swift */,
-				1728351D2BA24DDD00D444FB /* Resizable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -506,7 +503,6 @@
 				179CF8562B9920BA001BBBBF /* FlightTimesError.swift in Sources */,
 				17082D1D2B9592C4000F5D41 /* AircraftListView.swift in Sources */,
 				17082D272B959359000F5D41 /* Date.swift in Sources */,
-				1728351E2BA24DDD00D444FB /* Resizable.swift in Sources */,
 				17082D2B2B95937E000F5D41 /* LogbookEntry.swift in Sources */,
 				17F2E4D92B9A80A90055D650 /* Aircraft.swift in Sources */,
 				17082D292B959366000F5D41 /* TimeInterval.swift in Sources */,

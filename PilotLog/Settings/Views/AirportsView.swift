@@ -6,6 +6,7 @@
 //
 
 import ActivityIndicatorView
+import MapKit
 import SwiftUI
 
 struct AirportsView: View {
@@ -33,7 +34,11 @@ struct AirportsView: View {
         } else {
             List {
                 ForEach(airports) { airport in
-                    Text("\(airport.id ?? "") - \(airport.name ?? "No Name")")
+                    NavigationLink {
+                        AirportDetailView(airport: airport)
+                    } label: {
+                        Text("\(airport.id ?? "") - \(airport.name ?? "No Name")")
+                    }
                 }
             }
         }
@@ -41,7 +46,7 @@ struct AirportsView: View {
     
     /// Load the airports into CoreData
     private func loadAirports() async {
-                showAirportLoadingIndicator = true
+        showAirportLoadingIndicator = true
         
         do {
             if let file = Bundle.main.url(forResource: "Airports", withExtension: "json") {
@@ -59,7 +64,41 @@ struct AirportsView: View {
     }
 }
 
+struct AirportDetailView: View {
+    var airport: Airport
+    let position: MapCameraPosition
+    
+    init(airport: Airport) {
+        self.airport = airport
+        self.position = MapCameraPosition.region(
+            MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: airport.latitude, longitude: airport.longitude),
+                span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            )
+        )
+    }
+
+    var body: some View {
+        List {
+            Text("ICAO: \(airport.id ?? "")")
+            Text("IATA: \(airport.iata ?? "N/A")")
+            Text("Location: \(airport.city ?? ""), \(airport.country ?? "")")
+            Text("Latt/Long: \(airport.latitude)/\(airport.longitude)")
+            Text("Altitude: \(airport.altitude)")
+            Text("Timezone: \(airport.timezone ?? "")")
+        }
+        .navigationTitle(airport.name ?? "\(airport.id!) Airport Details")
+        
+        Map(initialPosition: position, interactionModes: []) {
+            Marker(airport.name ?? airport.id!, coordinate: CLLocationCoordinate2D(latitude: airport.latitude, longitude: airport.longitude))
+        }
+        .mapStyle(.standard)
+    }
+}
+
 #Preview {
-    AirportsView()
-        .environment(\.managedObjectContext, DataController.preview.container.viewContext)
+    NavigationView {
+        AirportsView()
+            .environment(\.managedObjectContext, DataController.preview.container.viewContext)
+    }
 }

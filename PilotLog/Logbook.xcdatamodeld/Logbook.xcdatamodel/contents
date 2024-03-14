@@ -6,8 +6,8 @@
         <attribute name="country" optional="YES" attributeType="String"/>
         <attribute name="iata" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="timezone" optional="YES" attributeType="String"/>
         <attribute name="timezone_dst" optional="YES" attributeType="String"/>
