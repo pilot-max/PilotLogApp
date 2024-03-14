@@ -26,6 +26,12 @@ struct SettingsView: View {
                     }
                     
                     NavigationLink {
+                        AirportsView()
+                    } label: {
+                        Text("Airports")
+                    }
+                    
+                    NavigationLink {
                         Text("Test")
                     } label: {
                         Text("Pilots")

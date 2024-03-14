@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Airport" representedClassName="Airport" syncable="YES" codeGenerationType="category">
+        <attribute name="altitude" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="iata" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="timezone" optional="YES" attributeType="String"/>
+        <attribute name="timezone_dst" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Flight" representedClassName="Flight" syncable="YES" codeGenerationType="class">
+        <attribute name="approaches" optional="YES" attributeType="String"/>
+        <attribute name="crew" optional="YES" attributeType="String"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_duty_end" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_duty_start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_in" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_off" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_on" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_out" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_scheduled_in" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_scheduled_off" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_scheduled_on" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_scheduled_out" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="duty_type" optional="YES" attributeType="Transformable"/>
+        <attribute name="flight_number" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="num_landings" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="num_takeoffs" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+        <attribute name="route_arrival" optional="YES" attributeType="String"/>
+        <attribute name="route_departure" optional="YES" attributeType="String"/>
+        <attribute name="time_crosscountry" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="time_instrument" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="time_night" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="time_relief" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+    </entity>
+</model>

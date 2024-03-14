@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct LogbookEntryDetailView: View {
-    let entry: LogbookEntry
+    //let entry: LogbookEntry
+    let entry: FetchedResults<Flight>.Element
+    
     private let dateFormatter: DateFormatter = {
             let formatter = DateFormatter()
             formatter.dateStyle = .long
@@ -17,12 +19,12 @@ struct LogbookEntryDetailView: View {
     
     var body: some View {
         VStack {
-            Text("\(dateFormatter.string(from: entry.date))")
-            Text("\(entry.id)")
+//            Text("\(dateFormatter.string(from: entry.date))")
+//            Text("\(entry.id)")
         }
     }
 }
 
-#Preview {
-    LogbookEntryDetailView(entry: LogbookEntry.sampleEntries().first!)
-}
+//#Preview {
+//    LogbookEntryDetailView(entry: LogbookEntry.sampleEntries().first!)
+//}

@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct LogbookListItemView: View {
-    let entry: LogbookEntry
+    //let entry: LogbookEntry
+    let entry: FetchedResults<Flight>.Element
     
     var body: some View {
         HStack {
             VStack {
-                Text("\(entry.date.formatted(Date.FormatStyle().day(.twoDigits)))")
+                Text("\(entry.date?.formatted(Date.FormatStyle().day(.twoDigits)) ?? "")")
                     .font(.title)
-                Text("\(entry.date.formatted(Date.FormatStyle().month(.wide)))")
+                Text("\(entry.date?.formatted(Date.FormatStyle().month(.wide)) ?? "")")
                     .font(.caption)
             }
             .padding(.horizontal)
@@ -31,7 +32,7 @@ struct LogbookListItemView: View {
             }
             Spacer()
             VStack {
-                Text(String(format: "%.1f", entry.times.blockTimeClockFormat))
+                //Text(String(format: "%.1f", entry.times.blockTimeClockFormat))
 //                Text(entry.title())
 //                    .font(.caption)
             }
