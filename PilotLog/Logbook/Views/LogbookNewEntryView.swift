@@ -5,9 +5,16 @@
 //  Created by Max Udaskin on 2024-03-12.
 //
 
+import ActivityIndicatorView
 import SwiftUI
 
 struct LogbookNewEntryView: View {
+    @FetchRequest(
+        sortDescriptors: [
+            SortDescriptor(\Airport.id)
+        ]
+    ) var airports: FetchedResults<Airport>
+    
     @State var date = Date()
     @State var dutyType = "Flight"
     @State var departure = ""
@@ -21,6 +28,8 @@ struct LogbookNewEntryView: View {
     @State var scheduledTimeOn = Date()
     @State var scheduledTimeIn = Date()
     
+    @State private var showingDepartureAirportSelector = false
+    @State private var showingArrivalAirportSelector = false
     @State private var showingScheduledTimes: Bool = false
     
     var body: some View {
@@ -33,8 +42,14 @@ struct LogbookNewEntryView: View {
                         Text("Simulator")
                         Text("Deadhead")
                     }
-                    TextField("Departure", text: $departure)
-                    TextField("Arrival", text: $arrival)
+                }
+                
+                Section("Departure") {
+                    AirportPicker(selection: $departure, label: "Departure")
+                }
+            
+                Section("Arrival") {
+                    AirportPicker(selection: $arrival, label: "Arrival")
                 }
                 
                 Section("Actual Times") {
@@ -111,10 +126,6 @@ struct TimePicker: View {
     }
 }
 
-//struct AirportPicker: View {
-//    var airports: Airport
-//}
-
 struct BindingDate: Identifiable {
     var id: String
     var value: Binding<Date>
@@ -125,4 +136,5 @@ struct BindingDate: Identifiable {
 }
 #Preview {
     LogbookNewEntryView()
+        .environment(\.managedObjectContext, DataController.preview.container.viewContext)
 }

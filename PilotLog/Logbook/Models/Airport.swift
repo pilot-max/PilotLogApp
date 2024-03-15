@@ -6,8 +6,8 @@
 //
 //
 
-import Foundation
 import CoreData
+import SwiftUI
 
 @objc(Airport)
 public class Airport: NSManagedObject, Codable {
@@ -52,4 +52,16 @@ public class Airport: NSManagedObject, Codable {
 
 extension CodingUserInfoKey {
     static let managedObjectContext = CodingUserInfoKey(rawValue: "managedObjectContext")!
+}
+
+struct Airports {
+    var airports: FetchedResults<Airport>
+    
+    var asDictionary: [String: Airport] {
+        var list: [String: Airport] = [:]
+        airports.forEach { airport in
+            list[airport.id!] = airport
+        }
+        return list
+    }
 }

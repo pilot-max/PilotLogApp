@@ -79,4 +79,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+        .environment(\.managedObjectContext, DataController.preview.container.viewContext)
 }

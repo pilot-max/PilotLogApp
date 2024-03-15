@@ -50,6 +50,7 @@
 		17F2E4DD2B9A81200055D650 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2E4DC2B9A81200055D650 /* Airline.swift */; };
 		17F2E4DF2B9A85130055D650 /* LogbookPreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2E4DE2B9A85130055D650 /* LogbookPreviewData.swift */; };
 		17F969D32BA36A8D00729952 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F969D12BA36A8D00729952 /* Airport.swift */; };
+		17FF22FF2BA3BC4200C9194B /* AirportPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FF22FE2BA3BC4200C9194B /* AirportPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		17F2E4DC2B9A81200055D650 /* Airline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		17F2E4DE2B9A85130055D650 /* LogbookPreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogbookPreviewData.swift; path = "PilotLog/Preview Content/LogbookPreviewData.swift"; sourceTree = SOURCE_ROOT; };
 		17F969D12BA36A8D00729952 /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
+		17FF22FE2BA3BC4200C9194B /* AirportPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 				17082D0E2B9591DD000F5D41 /* LogbookView.swift */,
 				17082D102B959223000F5D41 /* LogbookListItemView.swift */,
 				1794F6D92BA12D1300344E0D /* LogbookNewEntryView.swift */,
+				17FF22FE2BA3BC4200C9194B /* AirportPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 			mainGroup = 17082CD22B95914A000F5D41;
 			packageReferences = (
 				179E8A8E2BA383C80023F8F5 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+				17FF22F92BA3A4F700C9194B /* XCRemoteSwiftPackageReference "TextFieldInputPrediction" */,
 			);
 			productRefGroup = 17082CDC2B95914A000F5D41 /* Products */;
 			projectDirPath = "";
@@ -501,6 +505,7 @@
 				17082D202B9592EC000F5D41 /* ToolsView.swift in Sources */,
 				17082D0F2B9591DD000F5D41 /* LogbookView.swift in Sources */,
 				179CF8562B9920BA001BBBBF /* FlightTimesError.swift in Sources */,
+				17FF22FF2BA3BC4200C9194B /* AirportPicker.swift in Sources */,
 				17082D1D2B9592C4000F5D41 /* AircraftListView.swift in Sources */,
 				17082D272B959359000F5D41 /* Date.swift in Sources */,
 				17082D2B2B95937E000F5D41 /* LogbookEntry.swift in Sources */,
@@ -862,6 +867,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.1.1;
+			};
+		};
+		17FF22F92BA3A4F700C9194B /* XCRemoteSwiftPackageReference "TextFieldInputPrediction" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simonloewe/TextFieldInputPrediction";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

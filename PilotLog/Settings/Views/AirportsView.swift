@@ -37,7 +37,19 @@ struct AirportsView: View {
                     NavigationLink {
                         AirportDetailView(airport: airport)
                     } label: {
-                        Text("\(airport.id ?? "") - \(airport.name ?? "No Name")")
+                        VStack {
+                            HStack {
+                                Text("\(airport.id!)")
+                                Spacer()
+                                Text("\(airport.name ?? "")")
+                            }
+                            HStack {
+                                Text("\(airport.iata ?? "")")
+                                Spacer()
+                                Text("\(airport.city ?? ""), \(airport.country ?? "")")
+                            }
+                            .font(.caption)
+                        }
                     }
                 }
             }

@@ -21,16 +21,19 @@ struct LogbookView: View {
                     LogbookListItemView(entry: flight)
                 }
             }
-            Button("Add") {
-                do {
-                    let flight = Flight(context: moc)
-                    flight.id = UUID()
-                    flight.date = Date()
-                    try moc.save()
-                } catch {
-                    print(error)
-                }
+            NavigationLink("New Entry") {
+                LogbookNewEntryView()
             }
+//            Button("Add") {
+//                do {
+//                    let flight = Flight(context: moc)
+//                    flight.id = UUID()
+//                    flight.date = Date()
+//                    try moc.save()
+//                } catch {
+//                    print(error)
+//                }
+//            }
         }
         .navigationTitle("Logbook")
         .navigationBarTitleDisplayMode(.inline)
@@ -45,4 +48,5 @@ struct LogbookView: View {
 
 #Preview {
     LogbookView()
+        .environment(\.managedObjectContext, DataController.preview.container.viewContext)
 }
