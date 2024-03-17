@@ -26,7 +26,7 @@
         <attribute name="date_scheduled_off" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="date_scheduled_on" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="date_scheduled_out" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="duty_type" optional="YES" attributeType="Transformable"/>
+        <attribute name="duty_type" optional="YES" attributeType="String"/>
         <attribute name="flight_number" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
@@ -37,6 +37,8 @@
         <attribute name="route_departure" optional="YES" attributeType="String"/>
         <attribute name="time_crosscountry" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="time_instrument" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="time_minutes_air" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="time_minutes_block" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="time_night" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="time_relief" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
     </entity>

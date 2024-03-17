@@ -24,16 +24,6 @@ struct LogbookView: View {
             NavigationLink("New Entry") {
                 LogbookNewEntryView()
             }
-//            Button("Add") {
-//                do {
-//                    let flight = Flight(context: moc)
-//                    flight.id = UUID()
-//                    flight.date = Date()
-//                    try moc.save()
-//                } catch {
-//                    print(error)
-//                }
-//            }
         }
         .navigationTitle("Logbook")
         .navigationBarTitleDisplayMode(.inline)

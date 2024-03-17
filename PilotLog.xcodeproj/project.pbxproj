@@ -43,8 +43,11 @@
 		1751F7582B9A54E2004EA9EC /* AircraftCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F7572B9A54E2004EA9EC /* AircraftCategory.swift */; };
 		1794F6DA2BA12D1300344E0D /* LogbookNewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794F6D92BA12D1300344E0D /* LogbookNewEntryView.swift */; };
 		179CF8562B9920BA001BBBBF /* FlightTimesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CF8552B9920BA001BBBBF /* FlightTimesError.swift */; };
+		179D0D522BA4AFB9000EA378 /* LogbookNewEntryView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D0D512BA4AFB9000EA378 /* LogbookNewEntryView-ViewModel.swift */; };
+		179D0D542BA4B1F7000EA378 /* DutyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D0D532BA4B1F7000EA378 /* DutyType.swift */; };
+		179D47BE2BA40042001F8F06 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 179D47BD2BA40042001F8F06 /* ActivityIndicatorView */; };
 		179E8A8D2BA3794E0023F8F5 /* DecoderConfigurationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E8A8C2BA3794E0023F8F5 /* DecoderConfigurationError.swift */; };
-		179E8A902BA383C80023F8F5 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 179E8A8F2BA383C80023F8F5 /* ActivityIndicatorView */; };
+		17B6B4812BA6021A00C44B75 /* FlightEntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B6B4802BA6021A00C44B75 /* FlightEntryError.swift */; };
 		17D4A0D62B9BA03D0045AAD0 /* LogbookView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4A0D52B9BA03D0045AAD0 /* LogbookView-ViewModel.swift */; };
 		17F2E4D92B9A80A90055D650 /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2E4D82B9A80A90055D650 /* Aircraft.swift */; };
 		17F2E4DD2B9A81200055D650 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2E4DC2B9A81200055D650 /* Airline.swift */; };
@@ -110,7 +113,10 @@
 		1751F7572B9A54E2004EA9EC /* AircraftCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftCategory.swift; sourceTree = "<group>"; };
 		1794F6D92BA12D1300344E0D /* LogbookNewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogbookNewEntryView.swift; sourceTree = "<group>"; };
 		179CF8552B9920BA001BBBBF /* FlightTimesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTimesError.swift; sourceTree = "<group>"; };
+		179D0D512BA4AFB9000EA378 /* LogbookNewEntryView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogbookNewEntryView-ViewModel.swift"; sourceTree = "<group>"; };
+		179D0D532BA4B1F7000EA378 /* DutyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DutyType.swift; sourceTree = "<group>"; };
 		179E8A8C2BA3794E0023F8F5 /* DecoderConfigurationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderConfigurationError.swift; sourceTree = "<group>"; };
+		17B6B4802BA6021A00C44B75 /* FlightEntryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightEntryError.swift; sourceTree = "<group>"; };
 		17D4A0D52B9BA03D0045AAD0 /* LogbookView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogbookView-ViewModel.swift"; sourceTree = "<group>"; };
 		17F2E4D82B9A80A90055D650 /* Aircraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aircraft.swift; sourceTree = "<group>"; };
 		17F2E4DC2B9A81200055D650 /* Airline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
@@ -124,7 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				179E8A902BA383C80023F8F5 /* ActivityIndicatorView in Frameworks */,
+				179D47BE2BA40042001F8F06 /* ActivityIndicatorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				17D4A0D52B9BA03D0045AAD0 /* LogbookView-ViewModel.swift */,
+				179D0D512BA4AFB9000EA378 /* LogbookNewEntryView-ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -297,6 +304,8 @@
 				179CF8552B9920BA001BBBBF /* FlightTimesError.swift */,
 				1751F7572B9A54E2004EA9EC /* AircraftCategory.swift */,
 				1751F7552B9A506D004EA9EC /* EngineType.swift */,
+				179D0D532BA4B1F7000EA378 /* DutyType.swift */,
+				17B6B4802BA6021A00C44B75 /* FlightEntryError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -366,7 +375,7 @@
 			);
 			name = PilotLog;
 			packageProductDependencies = (
-				179E8A8F2BA383C80023F8F5 /* ActivityIndicatorView */,
+				179D47BD2BA40042001F8F06 /* ActivityIndicatorView */,
 			);
 			productName = PilotLog;
 			productReference = 17082CDB2B95914A000F5D41 /* PilotLog.app */;
@@ -442,8 +451,7 @@
 			);
 			mainGroup = 17082CD22B95914A000F5D41;
 			packageReferences = (
-				179E8A8E2BA383C80023F8F5 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
-				17FF22F92BA3A4F700C9194B /* XCRemoteSwiftPackageReference "TextFieldInputPrediction" */,
+				179D47BC2BA40042001F8F06 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 			);
 			productRefGroup = 17082CDC2B95914A000F5D41 /* Products */;
 			projectDirPath = "";
@@ -491,6 +499,7 @@
 				17F2E4DF2B9A85130055D650 /* LogbookPreviewData.swift in Sources */,
 				17082D3E2B9596B7000F5D41 /* PilotLogApp.swift in Sources */,
 				1794F6DA2BA12D1300344E0D /* LogbookNewEntryView.swift in Sources */,
+				17B6B4812BA6021A00C44B75 /* FlightEntryError.swift in Sources */,
 				17F969D32BA36A8D00729952 /* Airport.swift in Sources */,
 				1751F7582B9A54E2004EA9EC /* AircraftCategory.swift in Sources */,
 				179E8A8D2BA3794E0023F8F5 /* DecoderConfigurationError.swift in Sources */,
@@ -517,7 +526,9 @@
 				17082D332B9593DF000F5D41 /* MileFraction.swift in Sources */,
 				174EED462B9FBE2B0012EFFD /* DataController.swift in Sources */,
 				17082D112B959223000F5D41 /* LogbookListItemView.swift in Sources */,
+				179D0D542BA4B1F7000EA378 /* DutyType.swift in Sources */,
 				17082D382B959411000F5D41 /* ApproachLighting.swift in Sources */,
+				179D0D522BA4AFB9000EA378 /* LogbookNewEntryView-ViewModel.swift in Sources */,
 				17082D352B9593EC000F5D41 /* DateHelper.swift in Sources */,
 				17082D2D2B959390000F5D41 /* FlightTimes.swift in Sources */,
 				17082D222B9592FE000F5D41 /* CrosswindCalculatorView.swift in Sources */,
@@ -705,6 +716,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.PilotLogCa.PilotLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -737,6 +752,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.PilotLogCa.PilotLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -861,7 +880,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		179E8A8E2BA383C80023F8F5 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+		179D47BC2BA40042001F8F06 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/ActivityIndicatorView";
 			requirement = {
@@ -869,20 +888,12 @@
 				minimumVersion = 1.1.1;
 			};
 		};
-		17FF22F92BA3A4F700C9194B /* XCRemoteSwiftPackageReference "TextFieldInputPrediction" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/simonloewe/TextFieldInputPrediction";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		179E8A8F2BA383C80023F8F5 /* ActivityIndicatorView */ = {
+		179D47BD2BA40042001F8F06 /* ActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 179E8A8E2BA383C80023F8F5 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			package = 179D47BC2BA40042001F8F06 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
 			productName = ActivityIndicatorView;
 		};
 /* End XCSwiftPackageProductDependency section */
