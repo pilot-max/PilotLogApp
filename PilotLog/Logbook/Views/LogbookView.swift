@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LogbookView: View {
     @State private var viewModel = ViewModel()
-    @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var flights: FetchedResults<Flight>
     
     var body: some View {
@@ -17,12 +16,13 @@ struct LogbookView: View {
             List(flights) { flight in
                 NavigationLink {
                     LogbookEntryDetailView(entry: flight)
+                        .environment(viewModel)
                 } label: {
                     LogbookListItemView(entry: flight)
                 }
             }
             NavigationLink("New Entry") {
-                LogbookNewEntryView()
+                LogbookNewEntryView(viewModel: viewModel)
             }
         }
         .navigationTitle("Logbook")
@@ -38,5 +38,4 @@ struct LogbookView: View {
 
 #Preview {
     LogbookView()
-        .environment(\.managedObjectContext, DataController.preview.container.viewContext)
 }

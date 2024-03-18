@@ -26,7 +26,6 @@
         <attribute name="date_scheduled_off" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="date_scheduled_on" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="date_scheduled_out" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="duty_type" optional="YES" attributeType="String"/>
         <attribute name="flight_number" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="notes" optional="YES" attributeType="String"/>

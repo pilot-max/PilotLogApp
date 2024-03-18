@@ -40,7 +40,7 @@ extension LogbookNewEntryView {
             
             let entry = Flight(context: moc)
             entry.date = date
-            entry.duty_type = dutyType
+            //entry.duty_type = dutyType
             entry.route_departure = departure
             entry.route_arrival = arrival
             entry.date_out = timeOut

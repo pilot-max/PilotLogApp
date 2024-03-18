@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State var notifyMeAbout: Int = 1
-    @State var playNotificationSounds: Bool = true
-    @State var sendReadReceipts: Bool = false
-    @State var profileImageSize: String = "large"
+    @State var viewModel = ViewModel()
     
     var aircraft = LogbookPreviewData().aircraft
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Section (header: Text("Lists")){
                     NavigationLink {
@@ -26,7 +23,8 @@ struct SettingsView: View {
                     }
                     
                     NavigationLink {
-                        AirportsView()
+                        // AirportsView()
+                        AirportsSettingsView(viewModel: $viewModel)
                     } label: {
                         Text("Airports")
                     }
@@ -37,42 +35,26 @@ struct SettingsView: View {
                         Text("Pilots")
                     }
                 }
-                Section(header: Text("Notifications")) {
-                    Picker("Notify Me About", selection: $notifyMeAbout) {
-                        Text("Direct Messages").tag(1)
-                        Text("Mentions").tag(2)
-                        Text("Anything").tag(3)
-                    }
-                    Toggle("Play notification sounds", isOn: $playNotificationSounds)
-                    Toggle("Send read receipts", isOn: $sendReadReceipts)
-                }
-                Section(header: Text("User Profiles")) {
-                    Picker("Profile Image Size", selection: $profileImageSize) {
-                        Text("Large").tag("large")
-                        Text("Medium").tag("medium")
-                        Text("Small").tag("small")
-                    }
-                    Button("Clear Image Cache") {}
-                }
-                Section(header: Text("Notifications")) {
-                    Picker("Notify Me About", selection: $notifyMeAbout) {
-                        Text("Direct Messages").tag(1)
-                        Text("Mentions").tag(2)
-                        Text("Anything").tag(3)
-                    }
-                    Toggle("Play notification sounds", isOn: $playNotificationSounds)
-                    Toggle("Send read receipts", isOn: $sendReadReceipts)
-                }
-                Section(header: Text("User Profiles")) {
-                    Picker("Profile Image Size", selection: $profileImageSize) {
-                        Text("Large").tag("large")
-                        Text("Medium").tag("medium")
-                        Text("Small").tag("small")
-                    }
-                    Button("Clear Image Cache") {}
+                
+                Section("Debug") {
+                    Toggle("Print Debug Messages to Log", isOn: $viewModel.printDebugMessages)
                 }
             }
             .navigationTitle("Settings")
+        }
+    }
+}
+
+struct LabeledItem<Content: View>: View {
+    let label: String
+    @ViewBuilder let content: Content
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("\(label)")
+                .font(.caption)
+                .foregroundStyle(.primary)
+            content
         }
     }
 }

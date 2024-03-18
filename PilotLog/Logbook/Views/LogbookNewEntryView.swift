@@ -9,11 +9,12 @@ import ActivityIndicatorView
 import SwiftUI
 
 struct LogbookNewEntryView: View {
-    @FetchRequest(
-        sortDescriptors: [
-            SortDescriptor(\Airport.id)
-        ]
-    ) var airports: FetchedResults<Airport>
+    var viewModel: LogbookView.ViewModel
+//    @FetchRequest(
+//        sortDescriptors: [
+//            SortDescriptor(\Airport.id)
+//        ]
+//    ) var airports: FetchedResults<Airport>
     
     @State var date = Date()
     @State var dutyType = "Flight"
@@ -45,11 +46,11 @@ struct LogbookNewEntryView: View {
                 }
                 
                 Section("Departure") {
-                    AirportPicker(selection: $departure, label: "Departure")
+                    AirportPicker(selection: $departure, label: "Departure", airports: viewModel.airports)
                 }
             
                 Section("Arrival") {
-                    AirportPicker(selection: $arrival, label: "Arrival")
+                    AirportPicker(selection: $arrival, label: "Arrival", airports: viewModel.airports)
                 }
                 
                 Section("Actual Times") {
@@ -135,6 +136,5 @@ struct BindingDate: Identifiable {
     }
 }
 #Preview {
-    LogbookNewEntryView()
-        .environment(\.managedObjectContext, DataController.preview.container.viewContext)
+    LogbookNewEntryView(viewModel: LogbookView.ViewModel())
 }

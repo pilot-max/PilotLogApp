@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LogbookListItemView: View {
     //let entry: LogbookEntry
-    let entry: FetchedResults<Flight>.Element
+    let entry: Flight
     
     var body: some View {
         HStack {

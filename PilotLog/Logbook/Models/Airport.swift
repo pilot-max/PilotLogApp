@@ -9,6 +9,69 @@
 import CoreData
 import SwiftUI
 
+class Airports: ObservableObject {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(
+        sortDescriptors: [
+            SortDescriptor(\Airport.id)
+        ]
+    ) var fetchedAirports: FetchedResults<Airport>
+    var array: [Airport]
+    var dict: [String: Airport]
+    
+    func load(force: Bool = false) throws {
+        Task {
+            try await loadSampleAirports()
+            loadDict(force: force)
+            loadArray(force: force)
+        }
+    }
+    
+    func loadDict(force: Bool = false) {
+        if dict.isEmpty || force {
+            dict.removeAll()
+            fetchedAirports.forEach { airport in
+                dict[airport.id!] = airport
+            }
+        }
+    }
+    
+    func loadArray(force: Bool = false) {
+        if array.isEmpty || force {
+            array.removeAll()
+            fetchedAirports.forEach { airport in
+                array.append(airport)
+            }
+        }
+    }
+    
+    /// Load the airports into CoreData
+    private func loadSampleAirports() async throws {
+        return
+//        do {
+//            // Don't load the JSON multiple times
+//            if fetchedAirports.count == 0 {
+//                if let file = Bundle.main.url(forResource: "Airports", withExtension: "json") {
+//                    let data = try Data(contentsOf: file)
+//                    let decoder = JSONDecoder()
+//                    decoder.userInfo[CodingUserInfoKey.managedObjectContext] = moc
+//                    try decoder.decode([Airport].self, from: data)
+//                    try moc.save()
+//                }
+//            }
+//        } catch {
+//            print("(AirportsView) \(error)")
+//            print("Description: \(error.localizedDescription)")
+//            throw(error)
+//        }
+    }
+    
+    init() {
+        self.array = []
+        self.dict = [:]
+    }
+}
+
 @objc(Airport)
 public class Airport: NSManagedObject, Codable {
     enum CodingKeys: CodingKey {
@@ -52,16 +115,4 @@ public class Airport: NSManagedObject, Codable {
 
 extension CodingUserInfoKey {
     static let managedObjectContext = CodingUserInfoKey(rawValue: "managedObjectContext")!
-}
-
-struct Airports {
-    var airports: FetchedResults<Airport>
-    
-    var asDictionary: [String: Airport] {
-        var list: [String: Airport] = [:]
-        airports.forEach { airport in
-            list[airport.id!] = airport
-        }
-        return list
-    }
 }
