@@ -10,11 +10,6 @@ import SwiftUI
 
 struct LogbookNewEntryView: View {
     var viewModel: LogbookView.ViewModel
-//    @FetchRequest(
-//        sortDescriptors: [
-//            SortDescriptor(\Airport.id)
-//        ]
-//    ) var airports: FetchedResults<Airport>
     
     @State var date = Date()
     @State var dutyType = "Flight"

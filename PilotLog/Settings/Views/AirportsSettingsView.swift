@@ -8,34 +8,40 @@
 import SwiftUI
 
 struct AirportsSettingsView: View {
-    @Binding var viewModel: SettingsView.ViewModel
+    @Binding var settingsViewModel: SettingsView.ViewModel
+    @State var viewModel = AirportsSettingsView.ViewModel()
     
     @State var showOnlySelectedCountries = false
     
     var body: some View {
         NavigationStack {
             Form {
+                Section("Loaded Airports") {
+                    NavigationLink("Loaded Airports") {
+                        AirportsView(viewModel: viewModel)
+                    }
+                }
                 Section(
                     content: {
                         LabeledItem(label: "Minimum Runway Length (ft)") {
-                            TextField("Minimum Runway Length in Feet", value: $viewModel.airportRunwayMinimumLength, formatter: NumberFormatter())
+                            TextField("Minimum Runway Length in Feet", value: $settingsViewModel.airportRunwayMinimumLength, formatter: NumberFormatter())
                         }
                         
                         LabeledItem(label: "Minimum Runway Width (ft)") {
-                            TextField("Minimum Runway Width in Feet", value: $viewModel.airportRunwayMinimumWidth, formatter: NumberFormatter())
+                            TextField("Minimum Runway Width in Feet", value: $settingsViewModel.airportRunwayMinimumWidth, formatter: NumberFormatter())
                         }
                         
-                        Toggle("Scheduled Service Only", isOn: $viewModel.printDebugMessages)
+                        Toggle("Scheduled Service Only", isOn: $settingsViewModel.printDebugMessages)
                         
                         NavigationLink {
                             List {
                                 ForEach(Continent.allCases, id: \.self.code) { continent in
-                                    MultipleSelectionRow(title: continent.rawValue, isSelected: viewModel.airportDisplayContinents.contains(continent.code)) {
-                                        if viewModel.airportDisplayContinents.contains(continent.code) {
-                                            viewModel.airportDisplayContinents.removeAll(where: { $0 == continent.code })
+                                    MultipleSelectionRow(title: continent.rawValue, isSelected: settingsViewModel.airportDisplayContinents.contains(continent.code)) {
+                                        if settingsViewModel.airportDisplayContinents.contains(continent.code) {
+                                            settingsViewModel.airportDisplayContinents.removeAll(where: { $0 == continent.code })
                                         }
                                         else {
-                                            viewModel.airportDisplayContinents.append(continent.code)
+                                            settingsViewModel.airportDisplayContinents.append(continent.code)
                                         }
                                     }
                                 }
@@ -47,17 +53,17 @@ struct AirportsSettingsView: View {
                         NavigationLink {
                             List {
                                 ForEach(Countries.name.sorted(by: <), id: \.key) { (key, name) in
-                                    if !showOnlySelectedCountries || viewModel.airportDisplayCountries.contains(key){
+                                    if !showOnlySelectedCountries || settingsViewModel.airportDisplayCountries.contains(key){
                                         MultipleSelectionRow(
                                             title: name,
-                                            isSelected: viewModel.airportDisplayCountries.contains(key),
-                                            isForceSelected: viewModel.airportDisplayContinents.contains(Countries.continent[key] ?? "")
+                                            isSelected: settingsViewModel.airportDisplayCountries.contains(key),
+                                            isForceSelected: settingsViewModel.airportDisplayContinents.contains(Countries.continent[key] ?? "")
                                         ) {
-                                            if viewModel.airportDisplayCountries.contains(key) {
-                                                viewModel.airportDisplayCountries.removeAll(where: { $0 == key })
+                                            if settingsViewModel.airportDisplayCountries.contains(key) {
+                                                settingsViewModel.airportDisplayCountries.removeAll(where: { $0 == key })
                                             }
                                             else {
-                                                viewModel.airportDisplayCountries.append(key)
+                                                settingsViewModel.airportDisplayCountries.append(key)
                                             }
                                         }
                                     }
@@ -66,14 +72,14 @@ struct AirportsSettingsView: View {
                                 if showOnlySelectedCountries {
                                     Section("Countries on selected Continents") {
                                         ForEach(Countries.name.sorted(by: <), id: \.key) { (key, name) in
-                                            if viewModel.airportDisplayContinents.contains(Countries.continent[key] ?? "") &&
-                                                !viewModel.airportDisplayCountries.contains(key){
+                                            if settingsViewModel.airportDisplayContinents.contains(Countries.continent[key] ?? "") &&
+                                                !settingsViewModel.airportDisplayCountries.contains(key){
                                                 MultipleSelectionRow(
                                                     title: name,
                                                     isSelected: false,
                                                     isForceSelected: true
                                                 ) {
-                                                    viewModel.airportDisplayCountries.append(key)
+                                                    settingsViewModel.airportDisplayCountries.append(key)
                                                 }
                                             }
                                         }
@@ -131,5 +137,5 @@ struct MultipleSelectionRow: View {
 
 #Preview {
     @State var vm = SettingsView.ViewModel()
-    return AirportsSettingsView(viewModel: $vm)
+    return AirportsSettingsView(settingsViewModel: $vm)
 }

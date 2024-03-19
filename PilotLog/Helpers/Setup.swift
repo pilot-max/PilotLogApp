@@ -35,23 +35,27 @@ struct Setup {
     }
     
     private func loadAirportsIntoCoreData() {
+        print(1)
         let request = NSFetchRequest<Airport>(entityName: "Airport")
         request.fetchLimit = 1
-        
+        print(2)
         do {
+            print(3)
             if try container.viewContext.fetch(request).count == 0 {
-                if let file = Bundle.main.url(forResource: "Airports", withExtension: "json") {
-                    let data = try Data(contentsOf: file)
-                    let decoder = JSONDecoder()
-                    decoder.userInfo[CodingUserInfoKey.managedObjectContext] = container.viewContext
-                    try decoder.decode([Airport].self, from: data)
-                    try container.viewContext.save()
-                    
-                    // Debug
-                    Debug.log("Airports loaded into CoreData.", caller: self)
-                    
-                    return
-                }
+                print(4)
+                Airports(container: container).loadAirportsFromFile()
+//                if let file = Bundle.main.url(forResource: "Airports", withExtension: "json") {
+//                    let data = try Data(contentsOf: file)
+//                    let decoder = JSONDecoder()
+//                    decoder.userInfo[CodingUserInfoKey.managedObjectContext] = container.viewContext
+//                    try decoder.decode([Airport].self, from: data)
+//                    try container.viewContext.save()
+//                    
+//                    // Debug
+//                    Debug.log("Airports loaded into CoreData.", caller: self)
+//                    
+//                    return
+//                }
             }
         } catch {
             Debug.log("An error has occured loading airports into CoreData: (\(error)): \(error.localizedDescription)", caller: self)

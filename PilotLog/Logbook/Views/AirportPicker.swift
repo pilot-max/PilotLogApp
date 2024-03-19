@@ -36,14 +36,14 @@ struct AirportPicker: View {
             NavigationStack {
                 List {
                     ForEach(airports.filter {
-                        $0.id?.hasPrefix(searchText.uppercased()) ?? false ||
-                        $0.iata?.hasPrefix(searchText.uppercased()) ?? false ||
+                        $0.ident?.hasPrefix(searchText.uppercased()) ?? false ||
+                        $0.iata_code?.hasPrefix(searchText.uppercased()) ?? false ||
                         $0.name?.range(of:searchText) != nil ||
-                        $0.city?.range(of:searchText) != nil
+                        $0.municipality?.range(of:searchText) != nil
                     }) { airport in
                         Button {
                             selectedAirport = airport
-                            selection = airport.id ?? ""
+                            selection = airport.ident ?? ""
                             isPresented = false
                         } label: {
                             AirportLabel(airport)
@@ -63,15 +63,15 @@ struct AirportPicker: View {
         var body: some View {
             HStack {
                 VStack {
-                    Text("\(airport.id!)")
-                    Text("\(airport.iata ?? "")")
+                    Text("\(airport.ident!)")
+                    Text("\(airport.iata_code ?? "")")
                         .font(.caption)
                 }
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text("\(airport.name ?? "")")
                         .multilineTextAlignment(.trailing)
-                    Text("\(airport.city ?? ""), \(airport.country ?? "")")
+                    Text("\(airport.municipality ?? ""), \(airport.iso_country ?? "")")
                         .font(.caption)
                 }
             }

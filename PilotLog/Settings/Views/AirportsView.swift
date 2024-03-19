@@ -10,68 +10,46 @@ import MapKit
 import SwiftUI
 
 struct AirportsView: View {
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(
-        sortDescriptors: [
-            SortDescriptor(\Airport.id)
-        ]
-    ) var airports: FetchedResults<Airport>
-    
+    @State var viewModel: AirportsSettingsView.ViewModel
     @State var showAirportLoadingIndicator = true
     
     var body: some View {
         
-        if airports.count == 0 {
-            ActivityIndicatorView(isVisible: $showAirportLoadingIndicator, type: .scalingDots(count: 3))
-                .frame(width: 50.0, height: 50.0)
-                .foregroundColor(.gray)
-                .onAppear {
-                    Task {
-                        await loadAirports()
-                    }
+        if viewModel.airports.array.count == 0 {
+            VStack {
+                ActivityIndicatorView(isVisible: $showAirportLoadingIndicator, type: .scalingDots(count: 3))
+                    .frame(width: 50.0, height: 50.0)
+                    .foregroundColor(.gray)
+                Text("Loading Airports")
+                
+                Button("Reload Airports") {
+                    viewModel.airports.fetchAirports()
+                    showAirportLoadingIndicator = true
                 }
-            Text("Loading Airports")
+                .padding()
+            }
         } else {
             List {
-                ForEach(airports) { airport in
+                ForEach(viewModel.airports.array) { airport in
                     NavigationLink {
                         AirportDetailView(airport: airport)
                     } label: {
                         VStack {
                             HStack {
-                                Text("\(airport.id!)")
+                                Text("\(airport.ident ?? "?")")
                                 Spacer()
                                 Text("\(airport.name ?? "")")
                             }
                             HStack {
-                                Text("\(airport.iata ?? "")")
+                                Text("\(airport.iata_code ?? "")")
                                 Spacer()
-                                Text("\(airport.city ?? ""), \(airport.country ?? "")")
+                                Text("\(airport.municipality ?? ""), \(airport.iso_country ?? "")")
                             }
                             .font(.caption)
                         }
                     }
                 }
             }
-        }
-    }
-    
-    /// Load the airports into CoreData
-    private func loadAirports() async {
-        showAirportLoadingIndicator = true
-        
-        do {
-            if let file = Bundle.main.url(forResource: "Airports", withExtension: "json") {
-                let data = try Data(contentsOf: file)
-                let decoder = JSONDecoder()
-                decoder.userInfo[CodingUserInfoKey.managedObjectContext] = moc
-                try decoder.decode([Airport].self, from: data)
-                try moc.save()
-                
-                showAirportLoadingIndicator = false
-            }
-        } catch {
-            print("(AirportsView) \(error)")
         }
     }
 }
@@ -84,7 +62,7 @@ struct AirportDetailView: View {
         self.airport = airport
         self.position = MapCameraPosition.region(
             MKCoordinateRegion(
-                center: CLLocationCoordinate2D(latitude: airport.latitude, longitude: airport.longitude),
+                center: CLLocationCoordinate2D(latitude: airport.latitude_deg, longitude: airport.longitude_deg),
                 span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
             )
         )
@@ -92,17 +70,18 @@ struct AirportDetailView: View {
 
     var body: some View {
         List {
-            Text("ICAO: \(airport.id ?? "")")
-            Text("IATA: \(airport.iata ?? "N/A")")
-            Text("Location: \(airport.city ?? ""), \(airport.country ?? "")")
-            Text("Latt/Long: \(airport.latitude)/\(airport.longitude)")
-            Text("Altitude: \(airport.altitude)")
-            Text("Timezone: \(airport.timezone ?? "")")
+            Text("DB ID: \(airport.id)")
+            Text("ICAO: \(airport.ident ?? "")")
+            Text("IATA: \(airport.iata_code ?? "N/A")")
+            Text("Location: \(airport.municipality ?? ""), \(airport.iso_country ?? "")")
+            Text("Latt/Long: \(airport.latitude_deg)/\(airport.longitude_deg)")
+            Text("Altitude: \(airport.elevation_ft)")
+            //Text("Timezone: \(airport.timezone ?? "")")
         }
-        .navigationTitle(airport.name ?? "\(airport.id!) Airport Details")
+        .navigationTitle(airport.name ?? "\(airport.ident!) Airport Details")
         
         Map(initialPosition: position, interactionModes: []) {
-            Marker(airport.name ?? airport.id!, coordinate: CLLocationCoordinate2D(latitude: airport.latitude, longitude: airport.longitude))
+            Marker(airport.name ?? airport.ident!, coordinate: CLLocationCoordinate2D(latitude: airport.latitude_deg, longitude: airport.longitude_deg))
         }
         .mapStyle(.standard)
     }
@@ -110,7 +89,6 @@ struct AirportDetailView: View {
 
 #Preview {
     NavigationView {
-        AirportsView()
-            .environment(\.managedObjectContext, DataController.preview.container.viewContext)
+        AirportsView(viewModel: AirportsSettingsView.ViewModel())
     }
 }

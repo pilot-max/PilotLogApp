@@ -35,13 +35,15 @@
 		17082D3E2B9596B7000F5D41 /* PilotLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17082D3D2B9596B7000F5D41 /* PilotLogApp.swift */; };
 		17082D402B959786000F5D41 /* FlightTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17082D3F2B959786000F5D41 /* FlightTimesTests.swift */; };
 		174EED462B9FBE2B0012EFFD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EED452B9FBE2B0012EFFD /* DataController.swift */; };
-		174EED492B9FBE890012EFFD /* Logbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 174EED472B9FBE890012EFFD /* Logbook.xcdatamodeld */; };
 		1751F7502B9A4BBE004EA9EC /* LogbookEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F74F2B9A4BBE004EA9EC /* LogbookEntryTests.swift */; };
 		1751F7522B9A4E5E004EA9EC /* AircraftTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F7512B9A4E5E004EA9EC /* AircraftTypeTests.swift */; };
 		1751F7542B9A4E7C004EA9EC /* AircraftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F7532B9A4E7C004EA9EC /* AircraftType.swift */; };
 		1751F7562B9A506D004EA9EC /* EngineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F7552B9A506D004EA9EC /* EngineType.swift */; };
 		1751F7582B9A54E2004EA9EC /* AircraftCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F7572B9A54E2004EA9EC /* AircraftCategory.swift */; };
+		1764C8762BA89E5200C8F84F /* Logbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1764C8732BA89E5200C8F84F /* Logbook.xcdatamodeld */; };
+		1764C8782BA8AB3400C8F84F /* CSV in Resources */ = {isa = PBXBuildFile; fileRef = 1764C8772BA8AB3300C8F84F /* CSV */; };
 		1794F6DA2BA12D1300344E0D /* LogbookNewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794F6D92BA12D1300344E0D /* LogbookNewEntryView.swift */; };
+		1798CE0B2BA7F4BC00F4E916 /* AirportsSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1798CE0A2BA7F4BC00F4E916 /* AirportsSettingsViewModel.swift */; };
 		179CF8562B9920BA001BBBBF /* FlightTimesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CF8552B9920BA001BBBBF /* FlightTimesError.swift */; };
 		179D0D522BA4AFB9000EA378 /* LogbookNewEntryView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D0D512BA4AFB9000EA378 /* LogbookNewEntryView-ViewModel.swift */; };
 		179D0D542BA4B1F7000EA378 /* DutyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179D0D532BA4B1F7000EA378 /* DutyType.swift */; };
@@ -112,13 +114,16 @@
 		17082D3D2B9596B7000F5D41 /* PilotLogApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotLogApp.swift; sourceTree = "<group>"; };
 		17082D3F2B959786000F5D41 /* FlightTimesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTimesTests.swift; sourceTree = "<group>"; };
 		174EED452B9FBE2B0012EFFD /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		174EED482B9FBE890012EFFD /* Logbook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Logbook.xcdatamodel; sourceTree = "<group>"; };
 		1751F74F2B9A4BBE004EA9EC /* LogbookEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogbookEntryTests.swift; sourceTree = "<group>"; };
 		1751F7512B9A4E5E004EA9EC /* AircraftTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftTypeTests.swift; sourceTree = "<group>"; };
 		1751F7532B9A4E7C004EA9EC /* AircraftType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftType.swift; sourceTree = "<group>"; };
 		1751F7552B9A506D004EA9EC /* EngineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineType.swift; sourceTree = "<group>"; };
 		1751F7572B9A54E2004EA9EC /* AircraftCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftCategory.swift; sourceTree = "<group>"; };
+		1764C8742BA89E5200C8F84F /* Logbook copy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Logbook copy.xcdatamodel"; sourceTree = "<group>"; };
+		1764C8752BA89E5200C8F84F /* Logbook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Logbook.xcdatamodel; sourceTree = "<group>"; };
+		1764C8772BA8AB3300C8F84F /* CSV */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CSV; sourceTree = "<group>"; };
 		1794F6D92BA12D1300344E0D /* LogbookNewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogbookNewEntryView.swift; sourceTree = "<group>"; };
+		1798CE0A2BA7F4BC00F4E916 /* AirportsSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsSettingsViewModel.swift; sourceTree = "<group>"; };
 		179CF8552B9920BA001BBBBF /* FlightTimesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTimesError.swift; sourceTree = "<group>"; };
 		179D0D512BA4AFB9000EA378 /* LogbookNewEntryView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogbookNewEntryView-ViewModel.swift"; sourceTree = "<group>"; };
 		179D0D532BA4B1F7000EA378 /* DutyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DutyType.swift; sourceTree = "<group>"; };
@@ -188,11 +193,12 @@
 		17082CDD2B95914A000F5D41 /* PilotLog */ = {
 			isa = PBXGroup;
 			children = (
+				1764C8732BA89E5200C8F84F /* Logbook.xcdatamodeld */,
 				17082D0A2B9591B1000F5D41 /* MainView.swift */,
 				17082D3D2B9596B7000F5D41 /* PilotLogApp.swift */,
 				174EED452B9FBE2B0012EFFD /* DataController.swift */,
-				174EED472B9FBE890012EFFD /* Logbook.xcdatamodeld */,
 				17082CE42B95914B000F5D41 /* Assets.xcassets */,
+				1764C8772BA8AB3300C8F84F /* CSV */,
 				17082D362B9593F7000F5D41 /* Helpers */,
 				17D4A0C92B9B95990045AAD0 /* Logbook */,
 				17082CE62B95914B000F5D41 /* Preview Content */,
@@ -375,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				17C1FEC52BA7B3EE00517771 /* SettingsViewModel.swift */,
+				1798CE0A2BA7F4BC00F4E916 /* AirportsSettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -493,6 +500,7 @@
 				17082CE82B95914B000F5D41 /* Preview Assets.xcassets in Resources */,
 				17082CE52B95914B000F5D41 /* Assets.xcassets in Resources */,
 				17031A172BA357CF00D08FE2 /* Airports.json in Resources */,
+				1764C8782BA8AB3400C8F84F /* CSV in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,10 +536,10 @@
 				17082D1B2B9592B5000F5D41 /* SettingsView.swift in Sources */,
 				17082D152B959252000F5D41 /* LogbookEntryDetailView.swift in Sources */,
 				1751F7542B9A4E7C004EA9EC /* AircraftType.swift in Sources */,
+				1798CE0B2BA7F4BC00F4E916 /* AirportsSettingsViewModel.swift in Sources */,
 				17031A192BA357FE00D08FE2 /* AirportsView.swift in Sources */,
 				17D4A0D62B9BA03D0045AAD0 /* LogbookView-ViewModel.swift in Sources */,
 				17C1FECC2BA7C61200517771 /* Continent.swift in Sources */,
-				174EED492B9FBE890012EFFD /* Logbook.xcdatamodeld in Sources */,
 				17F2E4DD2B9A81200055D650 /* Airline.swift in Sources */,
 				17082D242B959310000F5D41 /* ApproachMinimumsCalculator.swift in Sources */,
 				17C1FEC62BA7B3EE00517771 /* SettingsViewModel.swift in Sources */,
@@ -551,6 +559,7 @@
 				17082D312B9593D4000F5D41 /* Trig.swift in Sources */,
 				17082D192B959297000F5D41 /* StepperInput.swift in Sources */,
 				17082D332B9593DF000F5D41 /* MileFraction.swift in Sources */,
+				1764C8762BA89E5200C8F84F /* Logbook.xcdatamodeld in Sources */,
 				174EED462B9FBE2B0012EFFD /* DataController.swift in Sources */,
 				17082D112B959223000F5D41 /* LogbookListItemView.swift in Sources */,
 				179D0D542BA4B1F7000EA378 /* DutyType.swift in Sources */,
@@ -927,12 +936,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		174EED472B9FBE890012EFFD /* Logbook.xcdatamodeld */ = {
+		1764C8732BA89E5200C8F84F /* Logbook.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				174EED482B9FBE890012EFFD /* Logbook.xcdatamodel */,
+				1764C8742BA89E5200C8F84F /* Logbook copy.xcdatamodel */,
+				1764C8752BA89E5200C8F84F /* Logbook.xcdatamodel */,
 			);
-			currentVersion = 174EED482B9FBE890012EFFD /* Logbook.xcdatamodel */;
+			currentVersion = 1764C8742BA89E5200C8F84F /* Logbook copy.xcdatamodel */;
 			path = Logbook.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

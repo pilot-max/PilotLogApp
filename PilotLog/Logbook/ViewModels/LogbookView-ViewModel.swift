@@ -23,6 +23,13 @@ extension LogbookView {
         /// Fetch the airports from CoreData
         func fetchAirports() {
             let request = NSFetchRequest<Airport>(entityName: "Airport")
+            request.predicate = NSPredicate(format: "ANY country in %@", argumentArray: UserDefaults.standard.array(forKey: "airportDisplayCountries"))
+            
+            do {
+                airports = try request.execute()
+            } catch {
+                Debug.log(error.localizedDescription, caller: self)
+            }
         }
         
         /// Add a new airport
@@ -37,20 +44,20 @@ extension LogbookView {
         ///   - altitude: The altitude in feet (569)
         ///   - timezone: The timezone
         ///   - timezone_dst: The timezone daylight savings code
-        func addAirport(id: String, name: String, city: String, country: String, iata: String = "", latitude: Double, longitude: Double, altitude: Int = 0, timezone: String, timezone_dst: String = "") {
-            let newAirport = Airport(context: container.viewContext)
-            newAirport.id = id
-            newAirport.name = name
-            newAirport.city = city
-            newAirport.country = country
-            newAirport.iata = iata
-            newAirport.latitude = latitude
-            newAirport.longitude = longitude
-            newAirport.altitude = Int16(altitude)
-            newAirport.timezone = timezone
-            newAirport.timezone_dst = timezone_dst
-            save()
-        }
+//        func addAirport(id: String, name: String, city: String, country: String, iata: String = "", latitude: Double, longitude: Double, altitude: Int = 0, timezone: String, timezone_dst: String = "") {
+//            let newAirport = Airport(context: container.viewContext)
+//            newAirport.id = id
+//            newAirport.name = name
+//            newAirport.city = city
+//            newAirport.country = country
+//            newAirport.iata = iata
+//            newAirport.latitude = latitude
+//            newAirport.longitude = longitude
+//            newAirport.altitude = Int16(altitude)
+//            newAirport.timezone = timezone
+//            newAirport.timezone_dst = timezone_dst
+//            save()
+//        }
         
         func save() {
             do {

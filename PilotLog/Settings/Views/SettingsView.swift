@@ -23,8 +23,7 @@ struct SettingsView: View {
                     }
                     
                     NavigationLink {
-                        // AirportsView()
-                        AirportsSettingsView(viewModel: $viewModel)
+                        AirportsSettingsView(settingsViewModel: $viewModel)
                     } label: {
                         Text("Airports")
                     }
