@@ -24,9 +24,9 @@ class Airports: ObservableObject {
         
         do {
             array = try container.viewContext.fetch(request).map{ $0 }
-            Debug.log("Airports fetched from database.", caller: self)
+            Debug.log("Airports fetched from database.", caller: "\(self).fetchAirports()")
         } catch {
-            Debug.log(error.localizedDescription, caller: "Airport.fetchAirports()")
+            Debug.log(error, caller: "\(self).fetchAirports()")
         }
     }
     
@@ -48,15 +48,14 @@ class Airports: ObservableObject {
                     dict[airport.ident!] = airport
                 } else {
                     // All airports should have an ident, but 🤷
-                    Debug.log("Airport id: \(airport.id) does not have an identifier.")
+                    Debug.log("Airport id: \(airport.id) does not have an identifier.", caller: self)
                 }
             }
         }
     }
     
     func loadAirportsFromFile() {
-        Debug.log("Loading airports from file.")
-        
+        Debug.log("Loading airports from file.", caller: self)
         Task {
             do {
                 try await loadAirportsFromFile()
@@ -68,25 +67,25 @@ class Airports: ObservableObject {
     
     /// Load the airports into CoreData
     private func loadAirportsFromFile() async throws {
-        if let filepath = Bundle.main.path(forResource: "airports.csv", ofType: nil) {
+        return
+        let inputFile = "airports.csv"
+        if let filepath = Bundle.main.path(forResource: inputFile, ofType: nil) {
             do {
                 let fileContent = try String(contentsOfFile: filepath)
                 let lines = fileContent.components(separatedBy: "\n")
-                var results: [String:String] = [:]
-                lines.dropFirst().forEach { line in
-                    let data = line.components(separatedBy: ",")
-                    if data.count == 2 {
-                        results[data[0]] = data[1]
-                    }
+                let header = lines[0].components(separatedBy: ",")
+                lines.dropFirst()[1...10].forEach { line in
+                    let data = Dictionary(uniqueKeysWithValues: zip(header, line.components(separatedBy: ",")))
+                    
+                    Airport(context: container.viewContext).setValuesFromDict(data)
+                    try? container.viewContext.save()
                 }
-                print(results)
             } catch {
-                print("error: \(error)") // to do deal with errors
+                Debug.log(error, caller: self)
             }
         } else {
-            print("airports.csv could not be found")
+            Debug.log("\(inputFile) could not be found", caller: self)
         }
-        
     }
     
     init(container: NSPersistentContainer) {
@@ -119,6 +118,26 @@ public class Airport: NSManagedObject, Codable {
              runway_lighted
     }
     
+    func setValuesFromDict(_ dict: [String: Any?]) {
+        id = Int32(dict["id"] as? Int ?? 0)
+        ident = dict["airport_ident"] as? String
+        type = dict["type"] as? String
+        name = dict["name"] as? String
+        latitude_deg = dict["latitude_deg"] as? Double ?? 0
+        longitude_deg = dict["longitude_deg"] as? Double ?? 0
+        elevation_ft = Int16(dict["elevation_ft"] as? Int ?? 0)
+        continent = dict["continent"] as? String
+        iso_country = dict["iso_country"] as? String
+        iso_region = dict["iso_region"] as? String
+        municipality = dict["municipality"] as? String
+        scheduled_service = dict["scheduled_service"] as? Bool ?? false
+        iata_code = dict["iata_code"] as? String
+        local_code = dict["local_code"] as? String
+        runway_length_ft = Int16(dict["runway_length_ft"] as? Int ?? 0)
+        runway_length_ft = Int16(dict["runway_length_ft"] as? Int ?? 0)
+        runway_lighted = dict["runway_lighted"] as? Bool ?? false
+    }
+    
     public required convenience init(from decoder: Decoder) throws {
         guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
             throw DecoderConfigurationError.missingManagedObjectContext
@@ -138,13 +157,13 @@ public class Airport: NSManagedObject, Codable {
         iso_country = try container.decode(String.self, forKey: .iso_country)
         iso_region = try container.decode(String.self, forKey: .iso_region)
         municipality = try container.decode(String.self, forKey: .municipality)
-        scheduled_service = try container.decode(Bool.self, forKey: .scheduled_service)
-        gps_code = try container.decode(String.self, forKey: .gps_code)
+        scheduled_service = try container.decode(Int.self, forKey: .scheduled_service) != 0
+//        gps_code = try container.decode(String.self, forKey: .gps_code)
         iata_code = try container.decode(String.self, forKey: .iata_code)
         local_code = try container.decode(String.self, forKey: .local_code)
         runway_length_ft = try container.decode(Int16.self, forKey: .runway_length_ft)
         runway_width_ft = try container.decode(Int16.self, forKey: .runway_width_ft)
-        runway_lighted = try container.decode(Bool.self, forKey: .runway_lighted)
+        runway_lighted = try container.decode(Int.self, forKey: .runway_lighted) != 0
 //        timezone = try container.decode(String.self, forKey: .timezone)
 //        timezone_dst = try container.decode(String.self, forKey: .timezone_dst)
     }

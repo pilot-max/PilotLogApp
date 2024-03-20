@@ -8,6 +8,11 @@
 import Foundation
 
 struct LogbookPreviewData {
+    //20277    1990    CYYZ    l    Toronto Lester B. Pearson International Airport    43.6772    -79.6306    569    NA    CA    CA-ON    Toronto    1    YYZ    YYZ    11120    200    1    0
+    //20261    1973    CYYC    l    Calgary International Airport    51.113899231    -114.019996643    3557    NA    CA    CA-AB    Calgary    1    YYC        6200    150    1    0
+    // 
+    let airports = []
+    
     let aircraft = [
         Aircraft(registration: "C-FNEN", tailNumber: "401", type: SampleAircraftTypes.dh8d.object(), airline: SampleAirlines.wen.object(), isActive: true),
         Aircraft(registration: "C-FHEN", tailNumber: "402", type: SampleAircraftTypes.dh8d.object(), airline: SampleAirlines.wen.object(), isActive: true),

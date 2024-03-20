@@ -7,6 +7,7 @@
 
 import CoreData
 import Foundation
+import SwiftCSV
 
 struct Setup {
     let container: NSPersistentContainer
@@ -35,15 +36,21 @@ struct Setup {
     }
     
     private func loadAirportsIntoCoreData() {
-        print(1)
         let request = NSFetchRequest<Airport>(entityName: "Airport")
         request.fetchLimit = 1
-        print(2)
         do {
-            print(3)
             if try container.viewContext.fetch(request).count == 0 {
-                print(4)
-                Airports(container: container).loadAirportsFromFile()
+                let data: CSV? = try CSV<Named>(
+                        name: "airports",
+                        extension: "csv")
+                
+                try data?.rows.forEach { row in
+                    let airport = Airport(context: container.viewContext)
+                    airport.setValuesFromDict(row)
+                    try container.viewContext.save()
+                }
+                
+//                Airports(container: container).loadAirportsFromFile()
 //                if let file = Bundle.main.url(forResource: "Airports", withExtension: "json") {
 //                    let data = try Data(contentsOf: file)
 //                    let decoder = JSONDecoder()
@@ -56,13 +63,14 @@ struct Setup {
 //                    
 //                    return
 //                }
+            } else {
+                // Debug
+                Debug.log("Airports are already loaded into CoreData.", caller: self)
             }
         } catch {
-            Debug.log("An error has occured loading airports into CoreData: (\(error)): \(error.localizedDescription)", caller: self)
+            Debug.log(error, caller: self)
         }
         
-        // Debug
-        Debug.log("Airports are already loaded into CoreData.", caller: self)
     }
     
     init() {

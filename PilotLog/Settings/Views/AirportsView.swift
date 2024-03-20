@@ -22,7 +22,8 @@ struct AirportsView: View {
                     .foregroundColor(.gray)
                 Text("Loading Airports")
                 
-                Button("Reload Airports") {
+                Button("Load Airports from File") {
+                    viewModel.airports.loadAirportsFromFile()
                     viewModel.airports.fetchAirports()
                     showAirportLoadingIndicator = true
                 }

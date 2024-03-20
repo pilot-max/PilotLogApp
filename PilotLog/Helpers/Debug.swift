@@ -12,9 +12,13 @@ struct Debug {
         log("\(caller)\n- \(message)")
     }
     
-    static func log(_ message: String) {
+    static func log(_ error: some Error, caller: Any) {
+        log("\(caller)\n- \(error): \(error.localizedDescription)")
+    }
+    
+    private static func log(_ message: String) {
         if UserDefaults.standard.bool(forKey: "printDebugMessages") {
-            print("\(message)")
+            print("\(Date().description): \(message)")
         }
     }
 }

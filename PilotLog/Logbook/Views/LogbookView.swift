@@ -9,29 +9,25 @@ import SwiftUI
 
 struct LogbookView: View {
     @State private var viewModel = ViewModel()
-    @FetchRequest(sortDescriptors: []) var flights: FetchedResults<Flight>
+    //@FetchRequest(sortDescriptors: []) var flights: FetchedResults<Flight>
     
     var body: some View {
         NavigationStack {
-            List(flights) { flight in
-                NavigationLink {
-                    LogbookEntryDetailView(entry: flight)
-                        .environment(viewModel)
-                } label: {
-                    LogbookListItemView(entry: flight)
-                }
-            }
+//            List(flights) { flight in
+//                NavigationLink {
+//                    LogbookEntryDetailView(entry: flight)
+//                        .environment(viewModel)
+//                } label: {
+//                    LogbookListItemView(entry: flight)
+//                }
+//            }
+            Text("No flights... todo")
             NavigationLink("New Entry") {
                 LogbookNewEntryView(viewModel: viewModel)
             }
         }
         .navigationTitle("Logbook")
         .navigationBarTitleDisplayMode(.inline)
-        
-        // Load sample data
-        .onAppear {
-            viewModel.loadSampleData()
-        }
     }
 }
 

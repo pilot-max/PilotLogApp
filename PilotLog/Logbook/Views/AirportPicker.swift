@@ -19,7 +19,7 @@ struct AirportPicker: View {
     @State var showAirportLoadingIndicator = false
     @State var searchText = ""
     
-    var airports: [Airport]
+    var airports: Airports?
     
     var body: some View {
         Button {
@@ -35,7 +35,7 @@ struct AirportPicker: View {
         .sheet(isPresented: $isPresented) {
             NavigationStack {
                 List {
-                    ForEach(airports.filter {
+                    ForEach(airports?.filter {
                         $0.ident?.hasPrefix(searchText.uppercased()) ?? false ||
                         $0.iata_code?.hasPrefix(searchText.uppercased()) ?? false ||
                         $0.name?.range(of:searchText) != nil ||
@@ -86,5 +86,5 @@ struct AirportPicker: View {
 #Preview {
     @State var selection = ""
     let vm = LogbookView.ViewModel()
-    return AirportPicker(selection: $selection, label: "Departure", airports: vm.airports)
+    return AirportPicker(selection: $selection, label: "Departure", airports: vm.airports!)
 }
