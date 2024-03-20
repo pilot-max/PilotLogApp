@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import SwiftData
+
+extension AirportSettingsView {
+    struct ViewModel {
+    }
+}
