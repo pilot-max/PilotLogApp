@@ -44,5 +44,5 @@ struct AirportView: View {
 
 #Preview {
     AirportSettingsView()
-        .modelContainer(for: Airport.self)
+//        .modelContainer(for: Airport.self)
 }

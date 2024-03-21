@@ -9,8 +9,9 @@ import SwiftData
 import SwiftUI
 
 struct AirportSettingsView: View {
-    @Environment(\.modelContext) private var context
-    @Query(sort: \Airport.ident) var airports: [Airport]
+//    @Environment(\.modelContext) private var context
+//    @Query(sort: \Airport.ident) var airports: [Airport]
+    var airports = Airport.factory(take: 10)
     
     var body: some View {
         NavigationStack {
@@ -25,11 +26,6 @@ struct AirportSettingsView: View {
                     }
                 } else {
                     Text("No airports loaded.")
-                    Button ("Load sample airports.") {
-                        SampleAirports.list.forEach { airport in
-                            context.insert(airport)
-                        }
-                    }
                 }
             }
         }
@@ -39,5 +35,4 @@ struct AirportSettingsView: View {
 
 #Preview {
     AirportSettingsView()
-        .modelContainer(for: Airport.self)
 }

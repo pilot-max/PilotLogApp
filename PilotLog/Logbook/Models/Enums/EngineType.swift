@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum EngineType: Codable {
+enum EngineType: Codable, CaseIterable {
     case piston
     case turboprop
     case turbofan

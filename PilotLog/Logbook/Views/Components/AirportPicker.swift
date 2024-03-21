@@ -9,8 +9,9 @@ import SwiftData
 import SwiftUI
 
 struct AirportPicker: View {
-    @Environment(\.modelContext) private var context
-    @Query(sort: \Airport.ident) var airports: [Airport]
+//    @Environment(\.modelContext) private var context
+//    @Query(sort: \Airport.ident) var airports: [Airport]
+    var airports = Airport.factory(take: 50)
     
     var label: String
     
@@ -90,5 +91,5 @@ struct AirportPicker: View {
 #Preview {
     @State var selection = ""
     return AirportPicker(label: "Departure", selection: $selection)
-        .modelContainer(for: Airport.self)
+//        .modelContainer(for: Airport.self)
 }

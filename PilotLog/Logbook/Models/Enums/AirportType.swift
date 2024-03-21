@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AirportType: Codable {
+enum AirportType: Codable, CaseIterable {
     case large_airport
     case medium_airport
     case small_airport

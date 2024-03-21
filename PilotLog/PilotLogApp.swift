@@ -13,9 +13,11 @@ struct PilotLogApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .modelContainer(for: [
-                    Airport.self
-                ])
+//                .modelContainer(for: [
+//                    Aircraft.self,
+//                    AircraftType.self,
+//                    Airport.self
+//                ])
         }
     }
 }

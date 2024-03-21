@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Aircraft: Codable, Identifiable {
+@Model
+final class Aircraft: Identifiable {
     var id: UUID
     var registration: String
     var tailNumber: String?
@@ -15,7 +17,7 @@ struct Aircraft: Codable, Identifiable {
     var airline: Airline?
     var isActive: Bool = true
     
-    internal init(registration: String, tailNumber: String? = nil, type: AircraftType, airline: Airline, isActive: Bool = true) {
+    init(registration: String, tailNumber: String? = nil, type: AircraftType, airline: Airline? = nil, isActive: Bool = true) {
         self.id = UUID()
         self.registration = registration
         self.tailNumber = tailNumber

@@ -89,5 +89,5 @@ struct LogbookNewEntryView: View {
 
 #Preview {
     LogbookNewEntryView()
-        .modelContainer(for: Airport.self)
+//        .modelContainer(for: Airport.self)
 }

@@ -6,12 +6,14 @@
 //
 
 import Foundation
-import SwiftData
+//import SwiftData
 
-@Model
-final class Airport {
-    @Attribute(.unique) var id: Int
-    @Attribute(.unique) var ident: String
+//@Model
+final class Airport: Identifiable {
+//    @Attribute(.unique) var id: Int
+//    @Attribute(.unique) var ident: String
+    var id: Int
+    var ident: String
     var type: AirportType
     var name: String
     var latitude_deg: Double

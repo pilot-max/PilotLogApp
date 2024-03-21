@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import SwiftData
 
-struct AircraftType: Identifiable, Codable, Equatable {
-    var id: String { icao }
+@Model
+class AircraftType {
+    var id: UUID
     var manufacturer: String
     var name: String
     var icao: String
@@ -27,5 +29,17 @@ struct AircraftType: Identifiable, Codable, Equatable {
     }
     var isHelicopter: Bool {
         engineType.isRotary
+    }
+    
+    init(manufacturer: String, name: String, icao: String, iata: String, numberOfEngines: Int, engineType: EngineType, isMultiCrew: Bool = false, isHighPerformance: Bool = false) {
+        self.id = UUID()
+        self.manufacturer = manufacturer
+        self.name = name
+        self.icao = icao
+        self.iata = iata
+        self.numberOfEngines = numberOfEngines
+        self.engineType = engineType
+        self.isMultiCrew = isMultiCrew
+        self.isHighPerformance = isHighPerformance
     }
 }
