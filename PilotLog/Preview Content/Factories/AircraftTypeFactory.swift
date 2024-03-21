@@ -5,15 +5,15 @@
 //  Created by Max Udaskin on 2024-03-20.
 //
 
+import Fakery
 import Foundation
 
 extension AircraftType {
     static func factory() -> AircraftType {
-        let letters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"]
-        let numbers = ["1234567890"]
-        let name = ["Polky", "Grandios", "Flakey", "Boing", "Errrrbus"].randomElement()!
-        let iata = (0..<2).map{ _ in [letters, numbers].joined().randomElement()! }.joined()
-        let icao = "\([letters, numbers].joined().randomElement()!)\(iata)"
+        let faker = Faker()
+        let name = faker.company.name()
+        let iata = faker.lorem.letterify("???").uppercased()
+        let icao = "\(faker.lorem.character().uppercased())\(iata)"
         
         return AircraftType(
             manufacturer: name,

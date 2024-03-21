@@ -13,7 +13,7 @@ extension LogbookView {
         private (set) var entries: [LogbookEntry] = []
         
         func loadSampleData() {
-            entries = LogbookEntry.sampleEntries()
+            entries = LogbookEntry.factory(take: 25)
         }
     }
 }

@@ -33,6 +33,8 @@
 		17082D3E2B9596B7000F5D41 /* PilotLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17082D3D2B9596B7000F5D41 /* PilotLogApp.swift */; };
 		17082D402B959786000F5D41 /* FlightTimesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17082D3F2B959786000F5D41 /* FlightTimesTests.swift */; };
 		1711F2AC2BABCAA1001B87A9 /* AircraftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1711F2AB2BABCAA1001B87A9 /* AircraftView.swift */; };
+		173BA5C82BABF2E700ADF777 /* Fakery in Frameworks */ = {isa = PBXBuildFile; productRef = 173BA5C72BABF2E700ADF777 /* Fakery */; };
+		173BA5CA2BAC014C00ADF777 /* LogbookEntryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173BA5C92BAC014C00ADF777 /* LogbookEntryFactory.swift */; };
 		1751F7502B9A4BBE004EA9EC /* LogbookEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F74F2B9A4BBE004EA9EC /* LogbookEntryTests.swift */; };
 		1751F7522B9A4E5E004EA9EC /* AircraftTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F7512B9A4E5E004EA9EC /* AircraftTypeTests.swift */; };
 		1751F7542B9A4E7C004EA9EC /* AircraftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751F7532B9A4E7C004EA9EC /* AircraftType.swift */; };
@@ -107,6 +109,7 @@
 		17082D3D2B9596B7000F5D41 /* PilotLogApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotLogApp.swift; sourceTree = "<group>"; };
 		17082D3F2B959786000F5D41 /* FlightTimesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTimesTests.swift; sourceTree = "<group>"; };
 		1711F2AB2BABCAA1001B87A9 /* AircraftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftView.swift; sourceTree = "<group>"; };
+		173BA5C92BAC014C00ADF777 /* LogbookEntryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogbookEntryFactory.swift; sourceTree = "<group>"; };
 		1751F74F2B9A4BBE004EA9EC /* LogbookEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogbookEntryTests.swift; sourceTree = "<group>"; };
 		1751F7512B9A4E5E004EA9EC /* AircraftTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftTypeTests.swift; sourceTree = "<group>"; };
 		1751F7532B9A4E7C004EA9EC /* AircraftType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftType.swift; sourceTree = "<group>"; };
@@ -139,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173BA5C82BABF2E700ADF777 /* Fakery in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +278,7 @@
 				175EAFDA2BABE0C5009EA755 /* AircraftFactory.swift */,
 				175EAFDC2BABE1EE009EA755 /* AircraftTypeFactory.swift */,
 				175EAFDE2BABE536009EA755 /* AirlineFactory.swift */,
+				173BA5C92BAC014C00ADF777 /* LogbookEntryFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -403,6 +408,9 @@
 			dependencies = (
 			);
 			name = PilotLog;
+			packageProductDependencies = (
+				173BA5C72BABF2E700ADF777 /* Fakery */,
+			);
 			productName = PilotLog;
 			productReference = 17082CDB2B95914A000F5D41 /* PilotLog.app */;
 			productType = "com.apple.product-type.application";
@@ -476,6 +484,9 @@
 				Base,
 			);
 			mainGroup = 17082CD22B95914A000F5D41;
+			packageReferences = (
+				173BA5C62BABF2E700ADF777 /* XCRemoteSwiftPackageReference "Fakery" */,
+			);
 			productRefGroup = 17082CDC2B95914A000F5D41 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -555,6 +566,7 @@
 				179869AE2BAB468700CB6702 /* AirportType.swift in Sources */,
 				17082D332B9593DF000F5D41 /* MileFraction.swift in Sources */,
 				17D3FEFA2BAB7E9B00C721FF /* FlicaView.swift in Sources */,
+				173BA5CA2BAC014C00ADF777 /* LogbookEntryFactory.swift in Sources */,
 				17082D112B959223000F5D41 /* LogbookListItemView.swift in Sources */,
 				17082D382B959411000F5D41 /* ApproachLighting.swift in Sources */,
 				17082D352B9593EC000F5D41 /* DateHelper.swift in Sources */,
@@ -906,6 +918,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		173BA5C62BABF2E700ADF777 /* XCRemoteSwiftPackageReference "Fakery" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vadymmarkov/Fakery";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		173BA5C72BABF2E700ADF777 /* Fakery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 173BA5C62BABF2E700ADF777 /* XCRemoteSwiftPackageReference "Fakery" */;
+			productName = Fakery;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 17082CD32B95914A000F5D41 /* Project object */;
 }

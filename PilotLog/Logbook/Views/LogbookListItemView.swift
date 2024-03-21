@@ -31,7 +31,7 @@ struct LogbookListItemView: View {
             }
             Spacer()
             VStack {
-                Text(String(format: "%.1f", entry.times.blockTimeClockFormat))
+                Text( entry.times.blockTimeClockFormat)
 //                Text(entry.title())
 //                    .font(.caption)
             }

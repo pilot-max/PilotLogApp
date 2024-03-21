@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import SwiftData
+//import SwiftData
 
-@Model
+//@Model
 class AircraftType {
     var id: UUID
     var manufacturer: String

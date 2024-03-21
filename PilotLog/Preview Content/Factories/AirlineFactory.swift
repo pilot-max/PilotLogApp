@@ -5,20 +5,20 @@
 //  Created by Max Udaskin on 2024-03-20.
 //
 
+import Fakery
 import Foundation
 
 extension Airline {
     static func factory() -> Airline {
-        let letters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"]
-        let numbers = ["1234567890"]
+        let faker = Faker()
         
-        let name = ["Peace", "Blue", "Mountain", "Lake", "Green", "Red"].randomElement()
-        let iata = (0..<3).map{ _ in [letters, numbers].joined().randomElement()! }.joined()
-        let icao = "\([letters, numbers].joined().randomElement())\(iata)"
+        let name = faker.company.name()
+        let iata = faker.lorem.characters(amount: 2).uppercased()
+        let icao = faker.lorem.characters(amount: 3).uppercased()
         let active = Bool.random()
-        let country = (0..<2).map{ _ in letters.randomElement()! }.joined()
+        let country = faker.address.countryCode()
         
-        return Airline(name: name!, icao: icao, iata: iata, active: active, country: country)
+        return Airline(name: name, icao: icao, iata: iata, active: active, country: country)
     }
     
     static func factory(take: Int) -> [Airline] {

@@ -5,13 +5,15 @@
 //  Created by Max Udaskin on 2024-03-20.
 //
 
+import Fakery
 import Foundation
 
 extension Aircraft {
     static func factory() -> Aircraft {
-        let letters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
-        let registration = "C-\((0..<4).map{ _ in letters.randomElement()! }.joined())"
-        let tailNumber = String(Int.random(in: 100...999))
+        let faker = Faker()
+        
+        let registration = faker.lorem.bothify("C-????")
+        let tailNumber = String(faker.number.randomInt(min: 100, max: 999))
         let type = AircraftType.factory()
         let airline = Airline.factory()
         let isActive = Bool.random()
