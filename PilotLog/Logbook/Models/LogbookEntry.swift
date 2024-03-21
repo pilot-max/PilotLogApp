@@ -10,10 +10,11 @@ import Foundation
 struct LogbookEntry: Identifiable {
     let id: UUID
     var date: Date
-    //var aircraft: Aircraft
-    //var flightNumber: String
-    //var route: FlightRoute
-    var times: FlightTimes
+    /*
+     var aircraft: Aircraft
+     var route: Route (from, to, waypoints)
+     */
+    var times: FlightTimes // (out, off, on, in, hobbs start/end, tach start/end, 
     
     init(date: Date, times: FlightTimes) {
         self.id = UUID()

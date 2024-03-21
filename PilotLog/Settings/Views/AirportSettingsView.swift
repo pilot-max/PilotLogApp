@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AirportSettingsView: View {
     @Environment(\.modelContext) private var context
-    @Query(sort: \Airport.ident, order: .reverse) var airports: [Airport]
+    @Query(sort: \Airport.ident) var airports: [Airport]
     
     var body: some View {
         NavigationStack {

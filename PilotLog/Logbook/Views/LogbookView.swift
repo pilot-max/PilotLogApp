@@ -19,6 +19,13 @@ struct LogbookView: View {
                     LogbookListItemView(entry: entry)
                 }
             }
+            .toolbar {
+                NavigationLink {
+                    LogbookNewEntryView()
+                } label: {
+                    Text("Add")
+                }
+            }
         }
         .navigationTitle("Logbook")
         .navigationBarTitleDisplayMode(.inline)

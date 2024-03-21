@@ -46,6 +46,10 @@
 		17D3FEF22BAB519000C721FF /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3FEF12BAB519000C721FF /* Debug.swift */; };
 		17D3FEF42BAB561300C721FF /* SampleAirports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3FEF32BAB561300C721FF /* SampleAirports.swift */; };
 		17D3FEF62BAB58F500C721FF /* AirportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3FEF52BAB58F500C721FF /* AirportView.swift */; };
+		17D3FEF82BAB5F7500C721FF /* LogbookNewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3FEF72BAB5F7500C721FF /* LogbookNewEntryView.swift */; };
+		17D3FEFA2BAB7E9B00C721FF /* FlicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3FEF92BAB7E9B00C721FF /* FlicaView.swift */; };
+		17D3FEFC2BAB987800C721FF /* LogbookNewEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3FEFB2BAB987800C721FF /* LogbookNewEntryViewModel.swift */; };
+		17D3FEFE2BAB9B9C00C721FF /* AirportPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3FEFD2BAB9B9C00C721FF /* AirportPicker.swift */; };
 		17D4A0D62B9BA03D0045AAD0 /* LogbookView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4A0D52B9BA03D0045AAD0 /* LogbookView-ViewModel.swift */; };
 		17F2E4D92B9A80A90055D650 /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2E4D82B9A80A90055D650 /* Aircraft.swift */; };
 		17F2E4DD2B9A81200055D650 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2E4DC2B9A81200055D650 /* Airline.swift */; };
@@ -112,6 +116,10 @@
 		17D3FEF12BAB519000C721FF /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		17D3FEF32BAB561300C721FF /* SampleAirports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAirports.swift; sourceTree = "<group>"; };
 		17D3FEF52BAB58F500C721FF /* AirportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportView.swift; sourceTree = "<group>"; };
+		17D3FEF72BAB5F7500C721FF /* LogbookNewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogbookNewEntryView.swift; sourceTree = "<group>"; };
+		17D3FEF92BAB7E9B00C721FF /* FlicaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlicaView.swift; sourceTree = "<group>"; };
+		17D3FEFB2BAB987800C721FF /* LogbookNewEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogbookNewEntryViewModel.swift; sourceTree = "<group>"; };
+		17D3FEFD2BAB9B9C00C721FF /* AirportPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportPicker.swift; sourceTree = "<group>"; };
 		17D4A0D52B9BA03D0045AAD0 /* LogbookView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogbookView-ViewModel.swift"; sourceTree = "<group>"; };
 		17F2E4D82B9A80A90055D650 /* Aircraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aircraft.swift; sourceTree = "<group>"; };
 		17F2E4DC2B9A81200055D650 /* Airline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
@@ -243,6 +251,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		17D3FEFF2BAB9BC200C721FF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				17D3FEFD2BAB9B9C00C721FF /* AirportPicker.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		17D4A0C92B9B95990045AAD0 /* Logbook */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +290,9 @@
 				17082D142B959252000F5D41 /* LogbookEntryDetailView.swift */,
 				17082D0E2B9591DD000F5D41 /* LogbookView.swift */,
 				17082D102B959223000F5D41 /* LogbookListItemView.swift */,
+				17D3FEF72BAB5F7500C721FF /* LogbookNewEntryView.swift */,
+				17D3FEF92BAB7E9B00C721FF /* FlicaView.swift */,
+				17D3FEFF2BAB9BC200C721FF /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				17D4A0D52B9BA03D0045AAD0 /* LogbookView-ViewModel.swift */,
+				17D3FEFB2BAB987800C721FF /* LogbookNewEntryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -496,16 +516,20 @@
 				179CF8562B9920BA001BBBBF /* FlightTimesError.swift in Sources */,
 				17D3FEF22BAB519000C721FF /* Debug.swift in Sources */,
 				17082D1D2B9592C4000F5D41 /* AircraftListView.swift in Sources */,
+				17D3FEF82BAB5F7500C721FF /* LogbookNewEntryView.swift in Sources */,
 				17082D272B959359000F5D41 /* Date.swift in Sources */,
 				17082D2B2B95937E000F5D41 /* LogbookEntry.swift in Sources */,
 				17F2E4D92B9A80A90055D650 /* Aircraft.swift in Sources */,
 				17082D292B959366000F5D41 /* TimeInterval.swift in Sources */,
+				17D3FEFE2BAB9B9C00C721FF /* AirportPicker.swift in Sources */,
 				179869AA2BAB43A700CB6702 /* Airport.swift in Sources */,
 				17082D0B2B9591B1000F5D41 /* MainView.swift in Sources */,
 				17082D312B9593D4000F5D41 /* Trig.swift in Sources */,
+				17D3FEFC2BAB987800C721FF /* LogbookNewEntryViewModel.swift in Sources */,
 				17082D192B959297000F5D41 /* StepperInput.swift in Sources */,
 				179869AE2BAB468700CB6702 /* AirportType.swift in Sources */,
 				17082D332B9593DF000F5D41 /* MileFraction.swift in Sources */,
+				17D3FEFA2BAB7E9B00C721FF /* FlicaView.swift in Sources */,
 				17D3FEF02BAB4D9000C721FF /* AirportSettingsViewModel.swift in Sources */,
 				17082D112B959223000F5D41 /* LogbookListItemView.swift in Sources */,
 				17082D382B959411000F5D41 /* ApproachLighting.swift in Sources */,
