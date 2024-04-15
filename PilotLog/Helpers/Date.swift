@@ -13,4 +13,18 @@ extension Date {
         dateFormatter.dateFormat = "YY/MM/dd"
         return dateFormatter.string(from: self)
     }
+    
+    var zeroSeconds: Date? {
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: self)
+        return calendar.date(from: dateComponents)
+    }
+    
+    static var zeroSeconds: Date {
+        Date().zeroSeconds!
+    }
+    
+    static var startOfToday: Date {
+        Calendar.current.startOfDay(for: .now)
+    }
 }

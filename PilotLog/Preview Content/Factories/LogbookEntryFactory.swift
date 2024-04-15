@@ -11,12 +11,13 @@ import SwiftUI
 extension LogbookEntry {
     static func factory () -> LogbookEntry {
         let faker = Faker()
-        let date = faker.date.birthday(0, 1)
-        let blockTime = Int.random(in: 90...600)
-        let airTime = blockTime - Int.random(in: 10...80)
+        let brakesReleased = faker.date.birthday(0, 1)
+        let takeoff = brakesReleased.addingTimeInterval(TimeInterval(Int.random(in: 1...30)))
+        let landing = takeoff.addingTimeInterval(TimeInterval(Int.random(in: 30...600)))
+        let brakesSet = landing.addingTimeInterval(TimeInterval(Int.random(in: 1...30)))
         //let times = try! FlightTimes(block: blockTime, air: airTime)
-        let times = try! FlightTimes(departureDate: date, brakesReleased: Date(), brakesSet: Date().advanced(by: 60*60))
-        return LogbookEntry(date: date, times: times)
+        let times = try! FlightTimes(departureDate: brakesReleased, brakesReleased: brakesReleased, takeoff: takeoff, landing: landing, brakesSet: brakesSet)
+        return LogbookEntry(date: brakesReleased, times: times)
     }
     
     static func factory(take: Int) -> [LogbookEntry] {

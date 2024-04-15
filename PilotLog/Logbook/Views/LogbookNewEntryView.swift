@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LogbookNewEntryView: View {
-    @State var isShowingFlica = false
     @StateObject var viewModel = ViewModel()
     
     var body: some View {
@@ -40,66 +39,14 @@ struct LogbookNewEntryView: View {
                     HStack {
                         Text("Block:")
                         Spacer()
-                        Text(viewModel.blockTime)
+                        Text(viewModel.flightTimes.blockTimeClockFormat)
                     }
                     HStack {
                         Text("Air:")
                         Spacer()
-                        Text("\(viewModel.airTime)")
+                        Text("\(viewModel.flightTimes.airTimeClockFormat)")
                     }
                 }
-//                Section {
-//                    Grid {
-//                        GridRow {
-//                                Text("Departure")
-//                                Spacer()
-//                                Text("Arrival")
-//                        }
-//                        .font(.headline)
-//                        GridRow {
-//                            DatePicker("Departure Date", selection: $viewModel.departureDate, displayedComponents: .date)
-//                                .labelsHidden()
-//                            Spacer()
-//                            DatePicker("Arrival Date", selection: $viewModel.departureDate, displayedComponents: .date)
-//                                .labelsHidden()
-//                        }
-//                        Divider()
-//                            .padding(.vertical)
-//                        GridRow {
-//                            VStack {
-//                                Text("Out")
-//                                DatePicker("Time out", selection: $viewModel.outTime, displayedComponents: .hourAndMinute)
-//                                    .labelsHidden()
-//                            }
-//                            VStack {
-//                                Text("Block")
-//                                Text("0:00")
-//                            }
-//                            VStack {
-//                                Text("In")
-//                                DatePicker("Time in", selection: $viewModel.outTime, displayedComponents: .hourAndMinute)
-//                                    .labelsHidden()
-//                            }
-//                        }
-//                        GridRow {
-//                            VStack {
-//                                Text("Off")
-//                                DatePicker("Time out", selection: $viewModel.outTime, displayedComponents: .hourAndMinute)
-//                                    .labelsHidden()
-//                            }
-//                            VStack {
-//                                Text("Air")
-//                                Text("0:00")
-//                            }
-//                            VStack {
-//                                Text("On")
-//                                DatePicker("Time in", selection: $viewModel.outTime, displayedComponents: .hourAndMinute)
-//                                    .labelsHidden()
-//                            }
-//                        }
-//                    }
-//                    .padding()
-//                }
             }
             .navigationTitle("Add Flight")
             .toolbar {

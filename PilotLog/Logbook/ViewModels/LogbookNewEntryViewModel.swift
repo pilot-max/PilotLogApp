@@ -14,35 +14,27 @@ extension LogbookNewEntryView {
         var outTime: Date {
             set {
                 try? flightTimes.setTime(brakesReleased: newValue)
-                self.blockTime = flightTimes.blockTimeClockFormat
-                print(blockTime)
             }
             get { flightTimes.brakesReleased ?? Date() }
         }
         var offTime: Date {
             set {
                 try? flightTimes.setTime(takeoff: newValue)
-                airTime = flightTimes.airTimeClockFormat
-                
             }
             get { flightTimes.takeoff ?? Date() }
         }
         var onTime: Date {
             set {
                 try? flightTimes.setTime(landing: newValue)
-                airTime = flightTimes.airTimeClockFormat
             }
             get { flightTimes.landing ?? Date() }
         }
         var inTime: Date {
             set {
                 try? flightTimes.setTime(brakesSet: newValue)
-                blockTime = flightTimes.blockTimeClockFormat
             }
             get { flightTimes.brakesSet ?? Date() }
         }
-        @Published var blockTime = ""
-        @Published var airTime = ""
         @Published var departureAirport = ""
         @Published var arrivalAirport = ""
         
@@ -52,7 +44,15 @@ extension LogbookNewEntryView {
         }()
         
         init() {
-            self.flightTimes = try! FlightTimes(departureDate: Date(), brakesReleased: Date(), takeoff: Date(), landing: Date(), brakesSet: Date())
+            // ToDo: Make UTC
+            let currentTime = Date.startOfToday
+            self.flightTimes = try! FlightTimes(
+                departureDate: currentTime,
+                brakesReleased: currentTime,
+                takeoff: currentTime,
+                landing: currentTime,
+                brakesSet: currentTime
+            )
             self.arrivalDate = Date()
         }
     }

@@ -172,7 +172,7 @@ struct FlightTimes {
     ///   - off: The time that the aircraft took off. Starting value for the air time range.
     ///   - on: The time that the aircraft landed. Ending value for the air time range.
     ///   - brakesSet: The time that the aircraft arrived to the gate. Also known as the in time. Ending value for the block time range.
-    init(departureDate: Date, brakesReleased: Date, takeoff: Date? = nil, landing: Date? = nil, brakesSet: Date? = nil) throws {
+    init(departureDate: Date, brakesReleased: Date, takeoff: Date, landing: Date, brakesSet: Date) throws {
         do {
             self.departureDate = departureDate
             self.brakesReleased = brakesReleased
