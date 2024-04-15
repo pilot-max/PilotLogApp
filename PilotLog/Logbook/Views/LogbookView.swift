@@ -12,13 +12,16 @@ struct LogbookView: View {
     
     var body: some View {
         NavigationStack {
-            List(viewModel.entries) { entry in
-                NavigationLink {
-                    LogbookEntryDetailView(entry: entry)
-                } label: {
-                    LogbookListItemView(entry: entry)
+            ScrollView {
+                ForEach(viewModel.entries) { entry in
+                    NavigationLink {
+                        LogbookEntryDetailView(entry: entry)
+                    } label: {
+                        LogbookListItemView(entry: entry)
+                    }
                 }
             }
+            .padding()
             .toolbar {
                 NavigationLink {
                     LogbookNewEntryView()

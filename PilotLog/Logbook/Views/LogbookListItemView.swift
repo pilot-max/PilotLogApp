@@ -18,9 +18,11 @@ struct LogbookListItemView: View {
                 Text("\(entry.date.formatted(Date.FormatStyle().month(.wide)))")
                     .font(.caption)
             }
-            .padding(.horizontal)
-            .padding(.vertical, 5)
+            .frame(width: 75,height: 75)
+//            .padding(.horizontal)
+//            .padding(.vertical, 5)
             .background(Color.accentBackground)
+            .foregroundColor(.primary)
             .cornerRadius(10)
             Spacer()
             VStack {
@@ -36,13 +38,10 @@ struct LogbookListItemView: View {
 //                    .font(.caption)
             }
         }
+        .foregroundStyle(.black)
     }
 }
 
-//struct LogbookListItemView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LogbookListItemView(entry: LogbookEntry.sampleData)
-//            .previewLayout(.sizeThatFits)
-//
-//    }
-//}
+#Preview {
+    LogbookListItemView(entry: LogbookEntry.factory())
+}

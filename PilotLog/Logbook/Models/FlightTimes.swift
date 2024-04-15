@@ -9,15 +9,16 @@ import Foundation
 
 /// Flight Times model. Used with LogbookEntry.
 struct FlightTimes {
+    var departureDate: Date
     private(set) var brakesReleased: Date? = nil
     private(set) var takeoff: Date? = nil
     private(set) var landing: Date? = nil
     private(set) var brakesSet: Date? = nil
     
     /// Block time in minutes
-    var blockTimeInMinutes: Int = -1
+    var blockTimeInMinutes: Int = 0
     /// Air time in minutes
-    var airTimeInMinutes: Int = -1
+    var airTimeInMinutes: Int = 0
     
     /// Block time in clock format (01:23)
     var blockTimeClockFormat: String {
@@ -35,6 +36,10 @@ struct FlightTimes {
     /// Recalculate air and block total times
     /// - Parameter changedValue: The key of the value changed. Optional. Will recalculate everything if omitted.
     private mutating func recalculateTimes(changedValue: String? = nil) throws {
+        // Set dates
+        
+        
+        // Calculate time ranges
         switch changedValue {
         case "brakesReleased", "brakesSet":
             if brakesReleased != nil && brakesSet != nil {
@@ -151,7 +156,14 @@ struct FlightTimes {
     ///   - end: End date to compare
     /// - Returns: Minutes between the start and end dates
     private func minutesBetween(_ start: Date, _ end: Date) -> Int {
-        Int(Int(end.timeIntervalSince1970 - start.timeIntervalSince1970) / 60)
+        let minutes = Int(Int(end.timeIntervalSince1970 - start.timeIntervalSince1970) / 60)
+        
+        // Flip over to the next day
+        if minutes < 0 {
+            return 1440 + minutes
+        }
+        
+        return minutes
     }
     
     /// Initializer for
@@ -160,8 +172,9 @@ struct FlightTimes {
     ///   - off: The time that the aircraft took off. Starting value for the air time range.
     ///   - on: The time that the aircraft landed. Ending value for the air time range.
     ///   - brakesSet: The time that the aircraft arrived to the gate. Also known as the in time. Ending value for the block time range.
-    init(brakesReleased: Date? = nil, takeoff: Date? = nil, landing: Date? = nil, brakesSet: Date? = nil) throws {
+    init(departureDate: Date, brakesReleased: Date, takeoff: Date? = nil, landing: Date? = nil, brakesSet: Date? = nil) throws {
         do {
+            self.departureDate = departureDate
             self.brakesReleased = brakesReleased
             self.takeoff = takeoff
             self.landing = landing
@@ -173,16 +186,16 @@ struct FlightTimes {
         }
     }
     
-    /// Initializer with block and air times precalculated
-    /// - Parameters:
-    ///   - block: The block time in minutes. This is the time logged for total hours.
-    ///   - air: The air time in minutes. This is the time logged for aircraft maintenance and for subtotals including instrument and cross-country time.
-    init(block: Int, air: Int) throws {
-        if block < air {
-            throw FlightTimesError.airTimeGreaterThanBlockTime
-        }
-        
-        self.blockTimeInMinutes = block
-        self.airTimeInMinutes = air
-    }
+//    /// Initializer with block and air times precalculated
+//    /// - Parameters:
+//    ///   - block: The block time in minutes. This is the time logged for total hours.
+//    ///   - air: The air time in minutes. This is the time logged for aircraft maintenance and for subtotals including instrument and cross-country time.
+//    init(block: Int, air: Int) throws {
+//        if block < air {
+//            throw FlightTimesError.airTimeGreaterThanBlockTime
+//        }
+//        
+//        self.blockTimeInMinutes = block
+//        self.airTimeInMinutes = air
+//    }
 }
