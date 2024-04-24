@@ -6,19 +6,21 @@
 //
 
 import Foundation
+import SwiftData
 
-struct LogbookEntry: Identifiable {
+@Model
+final class LogbookEntry {
     let id: UUID
     var date: Date
     /*
      var aircraft: Aircraft
      var route: Route (from, to, waypoints)
      */
-    var times: FlightTimes // (out, off, on, in, hobbs start/end, tach start/end, 
+    var times: FlightTimes
     
-    init(date: Date, times: FlightTimes) {
+    init(times: FlightTimes) {
         self.id = UUID()
-        self.date = date
+        self.date = times.departureDate
         self.times = times
     }
 }

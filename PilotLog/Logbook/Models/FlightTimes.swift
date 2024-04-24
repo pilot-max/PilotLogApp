@@ -8,7 +8,7 @@
 import Foundation
 
 /// Flight Times model. Used with LogbookEntry.
-struct FlightTimes {
+struct FlightTimes: Codable {
     var departureDate: Date
     private(set) var brakesReleased: Date? = nil
     private(set) var takeoff: Date? = nil

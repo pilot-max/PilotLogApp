@@ -51,16 +51,18 @@ struct LogbookNewEntryView: View {
             .navigationTitle("Add Flight")
             .toolbar {
                 Button {
-                    print("ToDo: Save Flight.")
+                    viewModel.saveEntry()
                 } label: {
                     Text("Save")
                 }
             }
+            
         }
     }
 }
 
 #Preview {
     LogbookNewEntryView()
+        .modelContainer(for: LogbookEntry.self)
 //        .modelContainer(for: Airport.self)
 }

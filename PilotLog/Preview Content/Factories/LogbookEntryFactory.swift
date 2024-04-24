@@ -17,7 +17,7 @@ extension LogbookEntry {
         let brakesSet = landing.addingTimeInterval(TimeInterval(Int.random(in: 1...30)))
         //let times = try! FlightTimes(block: blockTime, air: airTime)
         let times = try! FlightTimes(departureDate: brakesReleased, brakesReleased: brakesReleased, takeoff: takeoff, landing: landing, brakesSet: brakesSet)
-        return LogbookEntry(date: brakesReleased, times: times)
+        return LogbookEntry(times: times)
     }
     
     static func factory(take: Int) -> [LogbookEntry] {

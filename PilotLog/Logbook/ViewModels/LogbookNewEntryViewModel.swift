@@ -11,6 +11,8 @@ extension LogbookNewEntryView {
     class ViewModel: ObservableObject {
         @Published var flightTimes: FlightTimes
         @Published var arrivalDate: Date
+        @Published var departureAirport = ""
+        @Published var arrivalAirport = ""
         var outTime: Date {
             set {
                 try? flightTimes.setTime(brakesReleased: newValue)
@@ -35,13 +37,35 @@ extension LogbookNewEntryView {
             }
             get { flightTimes.brakesSet ?? Date() }
         }
-        @Published var departureAirport = ""
-        @Published var arrivalAirport = ""
         
         let timeFormatter: Formatter = {
             let formatter = TimeFormatter()
             return formatter
         }()
+        
+        var error = ""
+        var showErrorModal = false
+        
+        func saveEntry() {
+            if fieldsAreSetAndValid() {
+                let flightEntry = LogbookEntry(times: flightTimes)
+            } else {
+                // Display error
+                print("Fields are not set, or they are invalid")
+            }
+        }
+        
+        func fieldsAreSetAndValid() -> Bool {
+            // Verify Fields Set
+            if departureAirport.isEmpty, arrivalAirport.isEmpty {
+                return false
+            }
+            
+            // Validate Fields
+            
+            
+            return true
+        }
         
         init() {
             // ToDo: Make UTC
