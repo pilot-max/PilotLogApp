@@ -43,21 +43,27 @@ extension LogbookNewEntryView {
             return formatter
         }()
         
-        var error = ""
-        var showErrorModal = false
+        @Published var errorMessage = ""
+        @Published var showingErrorModal = false
         
         func saveEntry() {
             if fieldsAreSetAndValid() {
                 let flightEntry = LogbookEntry(times: flightTimes)
             } else {
                 // Display error
-                print("Fields are not set, or they are invalid")
+                showingErrorModal = true
             }
         }
         
         func fieldsAreSetAndValid() -> Bool {
             // Verify Fields Set
-            if departureAirport.isEmpty, arrivalAirport.isEmpty {
+            if departureAirport.isEmpty {
+                errorMessage = "Departure airport cannot be empty."
+                return false
+            }
+            
+            if departureAirport.isEmpty {
+                errorMessage = "Departure airport cannot be empty."
                 return false
             }
             

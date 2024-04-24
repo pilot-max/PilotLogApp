@@ -5,6 +5,7 @@
 //  Created by Max Udaskin on 2024-03-20.
 //
 
+import AlertToast
 import SwiftUI
 
 struct LogbookNewEntryView: View {
@@ -48,6 +49,10 @@ struct LogbookNewEntryView: View {
                     }
                 }
             }
+            .toast(isPresenting: $viewModel.showingErrorModal){
+                // `.alert` is the default displayMode
+                AlertToast( type: .error(.red), title: viewModel.errorMessage)
+            }
             .navigationTitle("Add Flight")
             .toolbar {
                 Button {
@@ -56,7 +61,6 @@ struct LogbookNewEntryView: View {
                     Text("Save")
                 }
             }
-            
         }
     }
 }

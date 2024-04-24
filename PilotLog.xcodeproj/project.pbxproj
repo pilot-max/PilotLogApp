@@ -44,6 +44,7 @@
 		175EAFDB2BABE0C5009EA755 /* AircraftFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EAFDA2BABE0C5009EA755 /* AircraftFactory.swift */; };
 		175EAFDD2BABE1EE009EA755 /* AircraftTypeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EAFDC2BABE1EE009EA755 /* AircraftTypeFactory.swift */; };
 		175EAFDF2BABE536009EA755 /* AirlineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EAFDE2BABE536009EA755 /* AirlineFactory.swift */; };
+		175F9F722BD978D600F531AD /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 175F9F712BD978D600F531AD /* AlertToast */; };
 		176994542BCCB41400DB9BE8 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176994532BCCB41400DB9BE8 /* TimeFormatter.swift */; };
 		176994562BCCB72C00DB9BE8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176994552BCCB72C00DB9BE8 /* String.swift */; };
 		179869AA2BAB43A700CB6702 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179869A92BAB43A700CB6702 /* Airport.swift */; };
@@ -149,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				173BA5C82BABF2E700ADF777 /* Fakery in Frameworks */,
+				175F9F722BD978D600F531AD /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +421,7 @@
 			name = PilotLog;
 			packageProductDependencies = (
 				173BA5C72BABF2E700ADF777 /* Fakery */,
+				175F9F712BD978D600F531AD /* AlertToast */,
 			);
 			productName = PilotLog;
 			productReference = 17082CDB2B95914A000F5D41 /* PilotLog.app */;
@@ -495,6 +498,7 @@
 			mainGroup = 17082CD22B95914A000F5D41;
 			packageReferences = (
 				173BA5C62BABF2E700ADF777 /* XCRemoteSwiftPackageReference "Fakery" */,
+				175F9F702BD9788800F531AD /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 17082CDC2B95914A000F5D41 /* Products */;
 			projectDirPath = "";
@@ -940,6 +944,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		175F9F702BD9788800F531AD /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -947,6 +959,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 173BA5C62BABF2E700ADF777 /* XCRemoteSwiftPackageReference "Fakery" */;
 			productName = Fakery;
+		};
+		175F9F712BD978D600F531AD /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 175F9F702BD9788800F531AD /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
